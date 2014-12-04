@@ -1,8 +1,8 @@
 module ComicVine
 
   def self.get_characters
-    character =
-    query =
+    query = params[:query]
+    query = query.gsub(' ', '%20')
     url = "http://comicvine.com/api/search/?api_key=#{api_key}&resources=character&query=#{query}&field_list=name,origin,publisher")
     api_response = HTTParty.get(url)
     results = api["response"]["results"]["character"]
