@@ -1,1 +1,7 @@
 <h1>Comic MatchUp</h1>
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag("Choose your comic book character:") %>
+  <%= text_field_tag(:name, nil, placeholder: '...ex. Wolverine') %>
+  <%= submit_tag("Go!") %>
+<% end %>
