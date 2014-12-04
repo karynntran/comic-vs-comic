@@ -4,9 +4,8 @@ class HomeController < ApplicationController
   end
 
   def search
-    query           = params['query']
-    binding.pry
-    # get_characters
+    query = params['query']
+    ComicVine.get_characters
     respond_to do |format|
       @characters = Character.all
       if @characters.include?(query)
