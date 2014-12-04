@@ -2,6 +2,6 @@
 
 <%= form_tag("/search", method: "get") do %>
   <%= label_tag("Choose your comic book character:") %>
-  <%= text_field_tag(:name, nil, placeholder: '...ex. Wolverine') %>
+  <%= text_field_tag 'query', '', placeholder: '...Wolverine?' %>
   <%= submit_tag("Go!") %>
 <% end %>

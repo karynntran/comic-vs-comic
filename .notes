@@ -1,0 +1,15 @@
+TABLES NEEDED
+
+Character
+
+t.string :name
+t.string :powers
+t.string :image
+t.string :team
+t.string :friends
+t.string :enemies
+t.string :bio
+
+User 
+
+t.integer :outcome

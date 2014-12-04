@@ -4,6 +4,19 @@ class HomeController < ApplicationController
   end
 
   def search
+    query           = params['query']
+    binding.pry
+    # get_characters
+    respond_to do |format|
+      @characters = Character.all
+      if @characters.include?(query)
+        format.json { render json: { status: "OK" } }
+      else
+        character = Character.create({name: query})
+        @characters << character
+        format.json { render json: { status: "OK" } }
+      end
+    end
   end
 
 end
