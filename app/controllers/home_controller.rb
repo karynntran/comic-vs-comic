@@ -7,16 +7,17 @@ class HomeController < ApplicationController
 
   def search
     query = params['query'].downcase
-      db_character = if Character.exists?(name: query)
-        character = Character.where(name: query)
-        character
+      if Character.exists?(name: query)
+        @character = Character.where(name: query)
+        binding.pry
+        render 'home/results'
       else
         api_character = ComicVine.get_character(query)
         hash = ComicVine.character_stats(api_character)
-        character = Character.create(hash)
+        @character = Character.create(hash)
         binding.pry
       end
-      character.to_json
+      @character.to_json
     #Note: Need to handle errors
   end
 
@@ -26,6 +27,8 @@ class HomeController < ApplicationController
   end
 
   def characters
+    characters = Character.all
+    render json: characters
   end
 
 end
