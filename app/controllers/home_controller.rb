@@ -9,14 +9,14 @@ class HomeController < ApplicationController
     query = params['query'].downcase
       if Character.exists?(name: query)
         @character = Character.where(name: query)
-        render 'home/results'
       else
         api_character = ComicVine.get_character(query)
-        hash = ComicVine.character_stats(api_character)
-        @character = Character.create(hash)
         binding.pry
+        # hash = ComicVine.character_stats
+        @character = Character.create(api_character)
       end
       @character.to_json
+      render 'home/results'
     #Note: Need to handle errors
   end
 
