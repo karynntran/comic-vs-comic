@@ -1,21 +1,25 @@
 class HomeController < ApplicationController
+  include ComicVine
 
   def index
   end
 
   def search
     query = params['query']
-    ComicVine.get_characters
-    respond_to do |format|
-      @characters = Character.all
-      if @characters.include?(query)
-        format.json { render json: { status: "OK" } }
+    @characters = Character.all
+    api_character = ComicVine.get_character(query)
+      if @characters.include?(api_character)
+        character = Character.find_by(name:query)
+      elsif api_character
+        character = Character.create({name: api_character.name...etc})
       else
-        character = Character.create({name: query})
-        @characters << character
-        format.json { render json: { status: "OK" } }
+        character = nil
       end
-    end
+      character.to_json
   end
-
 end
+
+
+  #character is in database
+  #character is not in database but in API
+  #character is not in database and not in API

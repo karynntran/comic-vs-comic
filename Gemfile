@@ -41,3 +41,5 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'pry'
 
 gem 'dotenv'
+
+gem 'httparty'
