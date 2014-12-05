@@ -18,12 +18,15 @@ module ComicVine
 
     powers_hash = api_single_character["response"]["results"]["powers"]["power"]
     powers = powers_hash.map { |power| power["name"] }
+    powers = powers.join(", ")
 
     team_friends_hash = api_single_character["response"]["results"]["team_friends"]["team"]
     team_friends = team_friends_hash.map { |friends| friends["name"] }
+    team_friends = team_friends.join(", ")
 
     team_enemies_hash = api_single_character["response"]["results"]["team_enemies"]["team"]
     team_enemies = team_enemies_hash.map { |enemies| enemies["name"] }
+    team_enemies = team_enemies.join(", ")
 
     {name: name, image: image, powers: powers, friends: team_friends, enemies: team_enemies}
   end
