@@ -1,6 +1,7 @@
 module ComicVine
   def self.get_character(query)
     #grab all characters that match the query
+    query = query.gsub(" ","%20")
     all_characters_url = "http://comicvine.com/api/characters/?api_key=#{api_key}&field_list=name,id,api_detail_url&filter=name:#{query}"
     api_all_characters = HTTParty.get(all_characters_url)
     first_result_id = api_all_characters["response"]["results"]["character"][0]["id"]
