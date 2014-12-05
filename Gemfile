@@ -43,3 +43,5 @@ gem 'pry'
 gem 'dotenv'
 
 gem 'httparty'
+
+gem 'rails-api'
