@@ -9,7 +9,6 @@ class HomeController < ApplicationController
     query = params['query'].downcase
       if Character.exists?(name: query)
         @character = Character.where(name: query)
-        binding.pry
         render 'home/results'
       else
         api_character = ComicVine.get_character(query)
