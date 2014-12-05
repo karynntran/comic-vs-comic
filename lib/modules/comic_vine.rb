@@ -32,6 +32,10 @@ module ComicVine
     {name: name, image: image, powers: powers, friends: team_friends, enemies: team_enemies}
   end
 
+  def self.character_hash
+    {name: params[:name], image: params[:image], powers: params[:powers], friends: params[:team_friends], enemies: params[:team_enemies]}
+  end
+
   def self.api_key
     ENV['ComicVine']
   end

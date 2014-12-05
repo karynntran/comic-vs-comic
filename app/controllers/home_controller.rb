@@ -20,7 +20,7 @@ class HomeController < ApplicationController
   end
 
   def character
-    character = Character.where(params[:name])
+    character = Character.where({name: params[:name]})
     render json: character
   end
 
