@@ -38,15 +38,10 @@ class HomeController < ApplicationController
     render json: character
   end
 
-  # private
-
-  #   def options
-  #     defaults.merge(params)
-  #   end
-
-  #   def defaults
-  #     {"id" => "", "name" => "", "powers" => "", "friends" => "", "enemies" => "", "image" => "", "team" => ""}
-  #   end
+  def characters
+    characters = Character.all
+    render json: characters
+  end
 
 end
 

@@ -1,5 +1,10 @@
-<h1>RESULTS</h1>
+<h1><%= @character.name.capitalize %></h1>
 
 <ul>
-	<li><%= @character.name %></li>
+	<li><img width="200px" height="auto" src="<%=@character.image%>"></li>
+	<li><%= @character.team %></li>
+	<li><%= @character.powers %></li>
+	<li><%= @character.friends %></li>
+	<li><%= @character.enemies %></li>
+	<li><%= @character.powers %></li>
 </ul>

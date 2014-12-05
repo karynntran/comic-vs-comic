@@ -11,5 +11,10 @@ t.string :enemies
 t.string :bio
 
 User 
-
 t.integer :outcome
+
+stories
+char
+
+MOVES
+CHAR and CHAR2
