@@ -6,7 +6,10 @@ module ComicVine
     all_characters_url = "http://comicvine.com/api/characters/?api_key=#{api_key}&field_list=name,id,api_detail_url&filter=resource_type:character,name:#{query}"
 
     api_all_characters = HTTParty.get(all_characters_url)
-    first_result_id = api_all_characters["response"]["results"]["character"]["id"]
+
+    # need to handle how characters are returned
+    first_result_id = check_character_exists(api_all_characters)
+
 
     one_character_url = "http://comicvine.com/api/character/4005-#{first_result_id}?api_key=#{api_key}&field_list=name,teams,powers,id,image,team_friends,team_enemies,"
     api_single_character = HTTParty.get(one_character_url)
@@ -42,6 +45,16 @@ module ComicVine
   # def self.character_hash
   #   {name: params[:name], image: params[:image], powers: params[:powers], friends: params[:team_friends], enemies: params[:team_enemies]}
   # end
+
+  def self.check_character_exists(api_all_chars)
+    check = api_all_chars["response"]["results"]["character"][0]
+      if check == nil
+        result = api_all_chars["response"]["results"]["character"][0]["id"]
+      else
+        result = check
+      end
+      result["id"]
+  end
 
   def self.api_key
     ENV['ComicVine']
