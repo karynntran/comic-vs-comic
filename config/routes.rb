@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get '/api/character' => 'home#character'
-  get '/api/characters' => 'home#characters'
+  get '/api/character' => 'api#character'
+  get '/api/characters' => 'api#characters'
 
   get '/search' => 'home#search'
 
