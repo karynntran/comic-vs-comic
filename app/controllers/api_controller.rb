@@ -24,4 +24,14 @@ class ApiController < ApplicationController
     render json: characters
   end
 
+  def outcomes
+    outcomes = Outcome.all
+    render json: outcomes
+  end
+
+  def friend_outcomes
+    friends = Friend.all
+    render json: friends
+  end
+
 end
