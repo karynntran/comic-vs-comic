@@ -7,17 +7,17 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 reactions = [
-  "#{char} goes flying across the city streets!",
-  "#{char} looks extremely uncomfortable.",
-  "#{char} laughs with derision.",
-  "#{char} groans, in pain.",
-  "#{char} blocks the move!",
-  "#{char} shields just in time.",
-  "#{char} says 'Is that all you got?'",
-  "#{char} gets thrown across the street, narrowly hitting the innocent civilians!",
-  "#{char} shakes his/her fist in anger.",
-  "#{char} shakes his/her head.",
-  "#{char} feels trapped."
+  "*char* goes flying across the city streets!",
+  "*char* looks extremely uncomfortable.",
+  "*char* laughs with derision.",
+  "*char* groans, in pain.",
+  "*char* blocks the move!",
+  "*char* shields just in time.",
+  "*char* says 'Is that all you got?'",
+  "*char* gets thrown across the street, narrowly hitting the innocent civilians!",
+  "*char* shakes his/her fist in anger.",
+  "*char* shakes his/her head.",
+  "*char* feels trapped."
 ]
 
 reactions.each do |reaction|
@@ -25,8 +25,8 @@ reactions.each do |reaction|
 end
 
 friends = [
-"#{friends} are here and they’re ready to fight.",
-"You keep calling for help, but #{friends} don’t arrive. Looks like you’re on your own for this one :( "
+"*friends* are here and they’re ready to fight.",
+"You keep calling for help, but *friends* don’t arrive. Looks like you’re on your own for this one :( "
 ]
 
 friends.each do |friend|
@@ -34,8 +34,12 @@ friends.each do |friend|
 end
 
 outcomes = [
-  "#{char2} grimaces, retreats and says “You may have won this battle but I’ll be back!”  "
-  "This isn’t looking good! You better run…looks like #{char2} wins this round…poor civilians!"
-  "Nothing good’s gonna come out of this one. Both of you draw. Until the next battle…"
-  "#{char1} can’t go on and admits defeat. #{char2} does a victory dance and blows up more buildings."
+  "*char2* grimaces, retreats and says 'You may have won this battle but I’ll be back!'",
+  "This isn’t looking good! *char1* better run…looks like *char2* wins this round…poor civilians!",
+  "Nothing good’s gonna come out of this one. *char1* and *char2* draw. Until the next battle…",
+  "*char1* can’t go on and admits defeat. *char2* does a victory dance and blows up more buildings.",
 ]
+
+outcomes.each do |outcome|
+  Outcome.create(outcome: outcome)
+end
