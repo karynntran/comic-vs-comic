@@ -14,7 +14,7 @@ class HomeController < ApplicationController
       # hash = ComicVine.character_stats
       @character = Character.create(api_character)
     end
-    @character = @character
+    @character
     render 'home/results'
     #Note: Need to handle errors
   end
