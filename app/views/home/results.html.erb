@@ -1,24 +1,30 @@
-<h1><%= @character.name.capitalize %></h1>
+<div id="results">
+	
+	<div class="header">Comic Smashup</div>
 
-<img width="200px" height="auto" src="<%=@character.image%>">
+		<h1><%= @character.name.capitalize %></h1>
 
-<div class="attribute team">
-	<p class="bold">Team(s)</p>
-	<%= @character.team %>
-</div>
+		<img width="200px" height="auto" src="<%=@character.image%>">
 
-<div class="attribute powers">
-	<p class="bold">Power(s)</p>
-	<%= @character.powers %>
-</div>
+		<div class="attribute team">
+			<p class="bold">Team(s)</p>
+			<%= @character.team %>
+		</div>
 
-<div class="attribute friends">
-	<p class="bold">Team Friend(s)</p>
-	<%= @character.friends %>
-</div>
+		<div class="attribute powers">
+			<p class="bold">Power(s)</p>
+			<%= @character.powers %>
+		</div>
 
-<div class="attribute enemies">
-	<p class="bold">Team Enem(ies)</p>
-	<%= @character.enemies %>
+		<div class="attribute friends">
+			<p class="bold">Team Friend(s)</p>
+			<%= @character.friends %>
+		</div>
+
+		<div class="attribute enemies">
+			<p class="bold">Team Enem(ies)</p>
+			<%= @character.enemies %>
+		</div>
+
 </div>
 

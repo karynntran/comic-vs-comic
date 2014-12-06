@@ -1,7 +1,11 @@
-<h1>Comic SmashUp</h1>
+<div id="home">
 
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag("Choose your comic book character:") %>
-  <%= text_field_tag 'query', '', placeholder: '...Wolverine?' %>
-  <%= submit_tag("Go!") %>
-<% end %>
+	<h1>Comic SmashUp</h1>
+
+	<%= form_tag("/search", method: "get") do %>
+	  <%= label_tag("Choose your comic book character:") %>
+	  <%= text_field_tag 'query', '', placeholder: '...Wolverine?' %>
+	  <%= submit_tag("Go!") %>
+	<% end %>
+
+</div>

@@ -1,0 +1,44 @@
+.header {
+    height: 30px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: black;
+    padding: 10px;
+    color: white;
+    font-size: 25px;
+	font-family: 'Permanent Marker', cursive;
+}
+
+body {
+	background: #FFF8DC;
+	font-family: 'Combo', cursive;
+	height: 100%;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+h1 {
+	font-family: 'Permanent Marker', cursive;
+}
+
+#home {
+
+}
+
+#results {
+	.attribute {
+		border: 1px lightgray solid;
+		padding: 5px;
+		margin: 5px 0;
+		background: white;
+		width: 300px;
+		max-height: 200px;
+		height: auto;
+		overflow-y: scroll;
+	}
+	.bold {
+		text-decoration: bold;
+		color: red;
+	}
+}
