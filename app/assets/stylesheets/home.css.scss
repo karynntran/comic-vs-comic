@@ -7,3 +7,16 @@ h1 {
 	font-family: 'Permanent Marker', cursive;
 }
 
+.attribute {
+	border: 1px lightgray solid;
+	padding: 5px;
+	background: white;
+	width: 300px;
+	height: 200px;
+	overflow-y: scroll;
+}
+
+.bold {
+	text-decoration: bold;
+	color: red;
+}
