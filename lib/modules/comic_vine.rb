@@ -48,6 +48,22 @@ module ComicVine
       result["id"]
   end
 
+  def self.check_api(query)
+    query = query.gsub(" ","%20")
+
+    all_characters_url = "http://comicvine.com/api/characters/?api_key=#{api_key}&field_list=name,id,api_detail_url&filter=resource_type:character,name:#{query}"
+
+    api_all_characters = HTTParty.get(all_characters_url)
+
+    api_all_characters = api_all_characters["response"]["results"]
+
+    if api_all_characters == nil
+      "failed"
+    else
+      "success"
+    end
+  end
+
   def self.api_key
     ENV['ComicVine']
   end

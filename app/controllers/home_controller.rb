@@ -7,17 +7,26 @@ class HomeController < ApplicationController
 
   def search
     query = params['query'].downcase
+    # if Character.exists?(name: query)
+    #   @character = Character.find_by(name: query)
+    # else
+    #   api_character = ComicVine.get_character(query)
+    #   @character = Character.create(api_character)
+    # end
+    # @character
+    # render 'home/results'
+
     if Character.exists?(name: query)
       @character = Character.find_by(name: query)
-    else
+      render 'home/results'
+    elsif ComicVine.check_api(query) == "success"
       api_character = ComicVine.get_character(query)
-      # hash = ComicVine.character_stats
       @character = Character.create(api_character)
+      render 'home/results'
+    else
+      @character = "Sorry, no characters found! Search for another one."
+      render 'home/index'
     end
-    @character
-    render 'home/results'
-    #Note: Need to handle errors
   end
-
+    #Note: Need to handle errors
 end
-
