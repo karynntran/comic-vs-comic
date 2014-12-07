@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = current_user
-    render 'users/show/@user.id'
+    @user = current_user(params[:id])
+    render 'users/show'
   end
 
   # GET /users/new

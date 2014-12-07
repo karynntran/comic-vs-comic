@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
+  get '/search' => 'home#search'
+
   resources :users, :only => [:show, :new, :create, :destroy]
 
   resources :sessions, :only => [:new, :create]
@@ -13,9 +17,5 @@ Rails.application.routes.draw do
   get '/api/outcomes' => 'api#outcomes'
   get '/api/friend-outcomes' => 'api#friend_outcomes'
   get '/api/users' => 'api#users'
-
-  get '/search' => 'home#search'
-
-  root 'home#index'
 
 end
