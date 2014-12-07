@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:show, :new, :create, :destroy]
 
+  resources :sessions, :only => [:new, :create]
+
   delete '/sessions' => 'sessions#destroy'
 
-  get '/login' => "sessions#new"
-
-  get '/checkuser' => "sessions#check"
+  post '/login' => "sessions#new"
 
   get '/api/character' => 'api#character'
   get '/api/characters' => 'api#characters'

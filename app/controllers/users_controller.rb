@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = current_user
-    user
+    render 'users/show/@user.id'
   end
 
   # GET /users/new

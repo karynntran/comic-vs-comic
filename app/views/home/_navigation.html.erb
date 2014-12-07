@@ -1,0 +1,10 @@
+<%= link_to 'Sign Up', new_user_path %>
+
+<%= link_to 'Log In', new_session_path %>
+
+<div class="logout">
+	<%= form_tag sessions_path, method: 'delete' do %>
+	  <%= submit_tag 'Logout' %>
+	<% end %>
+</div>
+
