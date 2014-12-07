@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/api/characters' => 'api#characters'
   get '/api/outcomes' => 'api#outcomes'
   get '/api/friend-outcomes' => 'api#friend_outcomes'
+  get '/api/users' => 'api#users'
 
   get '/search' => 'home#search'
 

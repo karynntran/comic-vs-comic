@@ -20,12 +20,20 @@
     <%= f.password_field :password, :placeholder => "password..." %>
   </div>
   <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name, :placeholder => "first name..." %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name, :placeholder => "last name..." %>
+  </div>
+  <div class="field">
     <%= f.label :image %><br>
-    <%= f.password_field :image, :placeholder => "image..." %>
+    <%= f.text_field :image, :placeholder => "image..." %>
   </div>
   <div class="field">
     <%= f.label :powers %><br>
-    <%= f.password_field :powers, :placeholder => "your special abilities..." %>
+    <%= f.text_field :powers, :placeholder => "your special abilities..." %>
   </div>
   <div class="actions">
     <%= f.submit %>

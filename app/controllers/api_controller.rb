@@ -34,4 +34,9 @@ class ApiController < ApplicationController
     render json: friends
   end
 
+  def users
+    users = User.all
+    render json: users
+  end
+
 end

@@ -38,6 +38,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'bcrypt', '~> 3.1.7'
+
 gem 'pry'
 
 gem 'dotenv'

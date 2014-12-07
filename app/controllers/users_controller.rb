@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :authorize, except: [:new, :create]
 
   # GET /users/1
@@ -18,18 +17,10 @@ class UsersController < ApplicationController
   def create
     if params[:user]
       @user = User.create(user_params)
+      render 'home/index'
     else
       @user = User.create(username: params[:username], password: params[:password])
-    end
-    respond_to do |format|
-      if @user.save
-        session[:user_id] = @user.id
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: { status: :created, username: @user.username, id: @user.id } }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+      render 'home/index'
     end
   end
 
@@ -37,10 +28,6 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -50,8 +37,9 @@ class UsersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    private
     def user_params
-      params.require(:user).permit(:username, :password, :favorites)
+      params.require(:user).permit(:username, :password, :image, :first_name, :last_name, :powers)
     end
 
 end
