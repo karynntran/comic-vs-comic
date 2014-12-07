@@ -2,14 +2,12 @@
 
 <!-- <%= form_for(@user) do |f| %> -->
 	<%= form_tag("/sessions", method: "post") do %>
-	  <div class='field'>
-	    	<%= f.label :username %><br>
-	      <%= f.text_field(:username, placeholder: '...username') %>
-	  </div>
-	  <div class='field'>
-	    <%= f.label :password %><br>
-	    <%= f.password_field(:password, placeholder: '...password') %>
-	    <%= f.submit("Login") %>
-	    </div>
+		<%= token_tag %>
+	    <%= f.label :username %><br>
+	    <%= f.text_field(:username, placeholder: '...username') %>
+
+	  <%= f.label :password %><br>
+	  <%= f.password_field(:password, placeholder: '...password') %>
+	  <%= f.submit("Login") %>
 	<% end %>
 <!-- <% end %> -->
