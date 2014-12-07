@@ -13,8 +13,10 @@ class ApiController < ApplicationController
       character = Character.has_enemies?(params[:enemies])
     elsif params[:image]
       character = Character.where({image: params[:image]})
-    else
+    elsif params[:teams]
       character = Character.has_team?(params[:teams])
+    else
+      character = Character.all
     end
     render json: character
   end
