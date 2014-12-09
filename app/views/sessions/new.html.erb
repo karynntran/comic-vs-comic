@@ -1,13 +1,10 @@
 <h1> Log In </h1>
 
-<!-- <%= form_for(@user) do |f| %> -->
-	<%= form_tag("/sessions", method: "post") do %>
-		<%= token_tag %>
-	    <%= f.label :username %><br>
-	    <%= f.text_field(:username, placeholder: '...username') %>
+<%= form_tag login_path do %>
+	<%= label_tag :username %><br>
+	<%= text_field_tag(:username) %>
 
-	  <%= f.label :password %><br>
-	  <%= f.password_field(:password, placeholder: '...password') %>
-	  <%= f.submit("Login") %>
-	<% end %>
-<!-- <% end %> -->
+	<%= label_tag :password %><br>
+	<%= password_field_tag(:password) %>
+	<%= submit_tag("Login") %>
+<% end %>

@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
-  include ComicVine
 
   def index
+    Rails.logger.info "YE GODS!"
+    Rails.logger.info session.class
     @characters = Character.all
   end
 
