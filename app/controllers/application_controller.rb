@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    Rails.logger.info("YE GODS! #{session} YE GODS!")
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 

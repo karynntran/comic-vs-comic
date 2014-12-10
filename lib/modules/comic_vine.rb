@@ -13,7 +13,7 @@ module ComicVine
     one_character_url = "http://comicvine.com/api/character/4005-#{first_result_id}?api_key=#{api_key}&field_list=name,teams,powers,id,image,team_friends,team_enemies,"
     api_single_character = HTTParty.get(one_character_url)
 
-  #get character stats
+    #get character stats
 
     name = api_single_character["response"]["results"]["name"]
     id = api_single_character["response"]["results"]["id"]

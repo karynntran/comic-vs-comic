@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
 
   def index
-    Rails.logger.info "YE GODS!"
-    Rails.logger.info session.class
     @characters = Character.all
   end
 
