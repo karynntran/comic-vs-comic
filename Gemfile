@@ -45,3 +45,4 @@ gem 'pry'
 gem 'dotenv'
 
 gem 'httparty'
+

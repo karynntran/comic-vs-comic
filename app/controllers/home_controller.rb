@@ -6,14 +6,6 @@ class HomeController < ApplicationController
 
   def search
     query = params['query'].downcase
-    # if Character.exists?(name: query)
-    #   @character = Character.find_by(name: query)
-    # else
-    #   api_character = ComicVine.get_character(query)
-    #   @character = Character.create(api_character)
-    # end
-    # @character
-    # render 'home/results'
 
     if Character.exists?(name: query)
       @character = Character.find_by(name: query)
@@ -27,5 +19,5 @@ class HomeController < ApplicationController
       render 'home/index'
     end
   end
-    #Note: Need to handle errors
+
 end
