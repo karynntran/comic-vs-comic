@@ -1,16 +1,21 @@
 class Story < ActiveRecord::Base
 
   def begin_story
+
   end
 
-  def use_powers
+  def self.call_powers
     #random power using current character
     #update story move table
+    power = @character.powers.split(', ').sample
   end
 
-  def use_friends
+  def self.call_friends
     #random friends team using current character
     #update story move table
+    friend = @character.friends.split(', ').sample
+    story = Friend.sample
+    @friend_story = story.gsub('*friends','#{friend}')
   end
 
   def user_powers
