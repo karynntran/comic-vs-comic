@@ -21,10 +21,12 @@
 // }
 
 function showOpponent(){
+	console.log('show opponent')
 	$.ajax({
 		url: '/opponent',
-		method: "GET",  
-		dataType: "json",
+		method: 'GET', 
+		data: {opponent: name},
+		dataType: 'json',
 		success: function(data){
 			console.log(data);
 			var template = _.template($('#opponent-template').html());
@@ -44,13 +46,12 @@ $(function(){
 			data: {query: name},
 			success: function(data){
 				console.log(data);
-
 				if (data.name){
 					var template = _.template($('#result-template').html());
 					var renderedHtml = template(data);
 					$('.chosen-character').html(renderedHtml);
 
-					showOpponent();
+
 
 					$('.chosen-character').find('.character-action').on('click',  function(e){
 						console.log($(this));

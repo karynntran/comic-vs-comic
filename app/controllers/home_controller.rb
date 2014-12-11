@@ -24,11 +24,13 @@ class HomeController < ApplicationController
   end
 
   def opponent
-    binding.pry
     story = current_user.stories.last
-    rand_opponent = Character.all.sample.name
-    opponent = story.update_attributes(character_two: rand_opponent)
-    render json: opponent
+    random_opponent = Character.all.sample.name
+    story.update_attributes(character_two: random_opponent)
+
+    @opponent = Character.find_by(name: random_opponent)
+
+    render json: @opponent
   end
 
   def power
