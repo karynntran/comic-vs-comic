@@ -23,3 +23,10 @@ class HomeController < ApplicationController
   end
 
 end
+
+
+      # story_data = {
+      #   user_id: current_user.id,
+      #   character_one: @character,
+      # }
+      # story = Story.create(story_data)
