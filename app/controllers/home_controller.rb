@@ -20,4 +20,8 @@ class HomeController < ApplicationController
     end
   end
 
+  def power
+    @character.powers.split(', ').sample
+  end
+
 end

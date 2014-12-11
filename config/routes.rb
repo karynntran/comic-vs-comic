@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/search' => 'home#search'
+  get '/powers' => 'home#powers'
 
   resources :users, :only => [:show, :new, :create, :destroy]
 
