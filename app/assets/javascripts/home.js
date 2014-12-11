@@ -51,7 +51,7 @@ $(function(){
 					var renderedHtml = template(data);
 					$('.chosen-character').html(renderedHtml);
 
-
+					showOpponent();
 
 					$('.chosen-character').find('.character-action').on('click',  function(e){
 						console.log($(this));
