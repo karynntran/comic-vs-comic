@@ -2,18 +2,18 @@ class Story < ActiveRecord::Base
 
   before_create :zero_moves
 
-  def self.call_powers
-    #random power using current character
-    #update story move table
-    power = @character.powers.split(', ').sample
+  def add_moves
+    self.moves += 1
   end
 
-  def self.call_friends
+  def call_powers
+    #random power using current character
+    #update story move table
+  end
+
+  def call_friends
     #random friends team using current character
     #update story move table
-    friend = @character.friends.split(', ').sample
-    story = Friend.sample
-    @friend_story = story.gsub('*friends','#{friend}')
   end
 
   def user_powers
