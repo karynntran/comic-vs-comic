@@ -11,7 +11,7 @@
 
 	<h1>Comic SmashUp</h1>
 
-	<%= form_tag("/search", method: "get", :class => 'search') do %>
+	<%= form_tag("/search", method: "get", :id => 'search') do %>
 	  <%= label_tag("Choose your comic book character:") %>
 	  <%= text_field_tag 'query', '', placeholder: '...Wolverine?' %>
 	  <%= submit_tag("Go!") %>

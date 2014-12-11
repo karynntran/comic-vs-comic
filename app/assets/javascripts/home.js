@@ -14,7 +14,7 @@
 
 $(function(){
 
-	$('.search').on('submit', function(e){
+	$('#search').on('submit', function(e){
 		e.preventDefault();
 		var name = $('form').find('input[name="query"]').val();
 		$.ajax({
