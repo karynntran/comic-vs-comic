@@ -27,11 +27,9 @@ function showOpponent(){
 		dataType: "json",
 		success: function(data){
 			console.log(data);
-			if (data.name) {
-				var template = _.template($('#opponent-template').html());
-				var renderedHtml = template(data);
-				$('.opponent-character').html(renderedHtml);
-			}
+			var template = _.template($('#opponent-template').html());
+			var renderedHtml = template(data);
+			$('.opponent-character').html(renderedHtml);
 		}
 	})
 }
