@@ -8,8 +8,17 @@
 // 	})
 // })
 
-// Backbone.history.start();
-
+// // Backbone.history.start();
+// function startGame(){
+// 	$.ajax({
+// 		url: '/start_game',
+// 		method: 'GET',
+// 		dataType: 'json',
+// 		success: function(data){
+// 			var new_game = data;
+// 		}
+// 	})
+// }
 
 
 $(function(){
@@ -21,7 +30,8 @@ $(function(){
 			url: '/search',
 			data: {query: name},
 			success: function(data){
-				console.log(data)
+				console.log(data);
+				// startGame();
 
 				if (data.name){
 					var template = _.template($('#result-template').html());

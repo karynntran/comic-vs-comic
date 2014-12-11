@@ -1,5 +1,7 @@
 class Story < ActiveRecord::Base
 
+  before_create :zero_moves
+
   def begin_story
 
   end
@@ -35,5 +37,12 @@ class Story < ActiveRecord::Base
 
   def outcome
   end
+
+##before create##
+
+  def zero_moves
+    self.moves = 0
+  end
+
 
 end

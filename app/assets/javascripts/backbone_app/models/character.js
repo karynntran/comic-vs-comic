@@ -1,2 +1,2 @@
-var Character = Backbone.Model.extend({
-});
+// var Character = Backbone.Model.extend({
+// });

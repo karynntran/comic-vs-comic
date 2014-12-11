@@ -15,6 +15,11 @@ class HomeController < ApplicationController
     else
       @character = "Sorry, no characters found! Search for another one."
     end
+    story_data = {
+      user_id: current_user.id,
+      character_one: @character.name,
+      }
+    story = Story.create(story_data)
     render json: @character
   end
 
