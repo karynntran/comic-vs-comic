@@ -9,17 +9,17 @@ class HomeController < ApplicationController
 
     if Character.exists?(name: query)
       @character = Character.find_by(name: query)
-      # @character.to_json
-      render 'home/results'
+
     elsif ComicVine.check_api(query) == "success"
       api_character = ComicVine.get_character(query)
       @character = Character.create(api_character)
-      # @character.to_json
-      render 'home/results'
+
     else
       @character = "Sorry, no characters found! Search for another one."
-      render 'home/index'
+
     end
+
+    render json: @character
   end
 
   def power
