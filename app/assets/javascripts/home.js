@@ -20,6 +20,21 @@
 // 	})
 // }
 
+function showOpponent(){
+	$.ajax({
+		url: '/opponent',
+		method: "GET",  
+		dataType: "json",
+		success: function(data){
+			console.log(data);
+			if (data.name) {
+				var template = _.template($('#opponent-template').html());
+				var renderedHtml = template(data);
+				$('.opponent-character').html(renderedHtml);
+			}
+		}
+	})
+}
 
 $(function(){
 
@@ -31,12 +46,13 @@ $(function(){
 			data: {query: name},
 			success: function(data){
 				console.log(data);
-				// startGame();
 
 				if (data.name){
 					var template = _.template($('#result-template').html());
 					var renderedHtml = template(data);
 					$('.chosen-character').html(renderedHtml);
+
+					showOpponent();
 
 					$('.chosen-character').find('.character-action').on('click',  function(e){
 						console.log($(this));

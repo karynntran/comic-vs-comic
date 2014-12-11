@@ -23,8 +23,16 @@ class HomeController < ApplicationController
     render json: @character
   end
 
+  def opponent
+    story = current_user.stories.last
+    rand_opponent = Character.all.sample.name
+    opponent = story.character_two = rand_opponent
+    render json: opponent
+  end
+
   def power
-    @character.powers.split(', ').sample
+    character = find_by(name: '')
+    character.powers.split(', ').sample
   end
 
 end

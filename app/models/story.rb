@@ -2,10 +2,6 @@ class Story < ActiveRecord::Base
 
   before_create :zero_moves
 
-  def begin_story
-
-  end
-
   def self.call_powers
     #random power using current character
     #update story move table
