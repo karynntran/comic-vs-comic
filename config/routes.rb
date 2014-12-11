@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/search' => 'home#search'
-  get '/power' => 'home#power'
   get '/opponent' => 'home#opponent'
+  get '/power' => 'home#power'
+  get '/call-friends' => 'home#call_friends'
+  get '/help-out' => 'home#help_out'
+
 
   resources :users, :only => [:show, :new, :create, :destroy]
 

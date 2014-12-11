@@ -34,8 +34,18 @@ class HomeController < ApplicationController
   end
 
   def power
-    character = find_by(name: '')
-    character.powers.split(', ').sample
+    binding.pry
+    current_char = current_user.stories.last.character_one
+    opponent = current_user.stories.last.character_two
+    power = Character.find_by({name: current_char}).powers.split(", ").sample.upcase
+    power_story = "#{current_char.upcase} uses the power of #{power} against #{opponent.upcase}"
+    render json: power_story
+  end
+
+  def call_friends
+  end
+
+  def help_out
   end
 
 end
