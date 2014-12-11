@@ -20,6 +20,20 @@
 // 	})
 // }
 
+// function showPower(){
+// 	console.log('show power')
+// 	$.ajax({
+// 		url: '/power',
+// 		data: {power_story: story},
+// 		dataType: 'json',
+// 		success: function(data){
+// 			var template = _.template($('#story-template').html());
+// 			var renderedHtml = template(data);
+// 			$('.story-results').append(renderedHtml);
+// 		}
+// 	})
+// }
+
 function showOpponent(){
 	console.log('show opponent')
 	$.ajax({
@@ -28,7 +42,6 @@ function showOpponent(){
 		data: {opponent: name},
 		dataType: 'json',
 		success: function(data){
-			console.log(data);
 			var template = _.template($('#opponent-template').html());
 			var renderedHtml = template(data);
 			$('.opponent-character').html(renderedHtml);
