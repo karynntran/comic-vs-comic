@@ -20,6 +20,21 @@
 // 	})
 // }
 
+function callFriends(){
+	console.log('call friends')
+	$.ajax({
+		url: '/call-friends',
+		data: {friend: friend},
+		dataType: 'json',
+		success: function(data){
+			console.log(data);
+			var template = _.template($('#story-template').html());
+			var renderedHtml = template(data);
+			$('.story-results').append(renderedHtml);
+		}
+	})
+}
+
 function showPower(){
 	console.log('show power')
 	$.ajax({
@@ -69,7 +84,8 @@ $(function(){
 
 					$('.chosen-character').find('.character-action').on('click',  function(e){
 						console.log($(this));
-						showPower();
+						// showPower();
+						callFriends();
 					})
 
 				}
