@@ -114,11 +114,14 @@ $(function(){
 					$('.chosen-character').html(renderedHtml);
 
 					showOpponent();
+					// $('#story').clear();
+					$('.story-results').show();
 
 					$('#buttons').show();
 
 					$('.chosen-character').find('#power-button').on('click',  function(e){
 						e.preventDefault();
+
 						console.log($(this));
 						// showPower();
 						// callFriends();

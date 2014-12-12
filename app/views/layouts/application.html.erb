@@ -9,19 +9,24 @@
 </head>
 
 <body>
-	<div class="char">
-		<script type='template' id='result-template'>
-			<%= render 'home/results' %>
-		</script>
 
-		<script type='template' id='opponent-template'>
-			<%= render 'home/opponent' %>
-		</script>
-	</div>
+<!-- 	 home scripts -->
+
+	<script type='template' id='result-template'>
+			<%= render 'home/results' %>
+	</script>
+
+	<script type='template' id='opponent-template'>
+		<%= render 'home/opponent' %>
+	</script>
 
 	<script type='template' id='story-template'>
 		<%= render 'home/story' %>
 	</script>	
+
+<!-- 	 character scripts -->
+
+	
 
 	<%= yield %>
 

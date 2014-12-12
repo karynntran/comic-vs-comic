@@ -1,2 +1,4 @@
-// var Character = Backbone.Model.extend({
-// });
+console.log("character model...");
+
+var Character = Backbone.Model.extend({
+});

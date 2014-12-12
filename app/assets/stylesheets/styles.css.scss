@@ -39,6 +39,13 @@ h1 {
 	float: left;
 	width: 300px;
 }
+.story-results {
+	height: 400px;
+	width: 500px;
+	overflow-y: scroll;
+	background-color: white;
+	display: none;
+}
 
 
 #results {

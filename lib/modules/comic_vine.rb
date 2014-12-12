@@ -4,7 +4,7 @@ module ComicVine
     query = query.gsub(" ","+")
 
     all_characters_url = "http://comicvine.com/api/characters/?api_key=#{api_key}&field_list=name,id,api_detail_url&filter=resource_type:character,name:#{query}"
-    binding.pry
+
     api_all_characters = HTTParty.get(all_characters_url)
 
     # need to handle how characters are returned

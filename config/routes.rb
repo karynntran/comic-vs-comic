@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/help-out' => 'home#help_out'
   get '/reaction' => 'home#reaction'
 
+  get '/characters' => 'character#index'
+
   resources :users, :only => [:show, :new, :create, :destroy]
 
   delete '/sessions' => 'sessions#destroy'
