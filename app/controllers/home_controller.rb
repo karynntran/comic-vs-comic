@@ -41,22 +41,20 @@ class HomeController < ApplicationController
     story = current_user.stories.last
     story.add_moves
 
-    render json: power_story
+    render json: {"value" => power_story}
 
   end
 
   def call_friends
-    binding.pry
     current_char = current_user.stories.last.character_one
     team_friends = Character.find_by({name: current_char}).friends.split(", ").sample.upcase
     result = Friend.all.sample.friend
-    @friend = result.gsub('*friends*', "#{team_friends}")
+    friend = result.gsub('*friends*', "#{team_friends}")
 
     story = current_user.stories.last
     story.add_moves
 
-    render json: @friend
-
+    render json: {"value" => friend}
   end
 
   def help_out
@@ -64,9 +62,3 @@ class HomeController < ApplicationController
 
 end
 
-
-      # story_data = {
-      #   user_id: current_user.id,
-      #   character_one: @character,
-      # }
-      # story = Story.create(story_data)

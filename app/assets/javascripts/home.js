@@ -24,17 +24,16 @@ function callFriends(){
 	console.log('call friends')
 	$.ajax({
 		url: '/call-friends',
-		data: {friend: name},
 		dataType: 'json',
 		success: function(data){
 			console.log(data);
 			var template = _.template($('#story-template').html());
-			var renderedHtml = template(data);
+			debugger;
+			var renderedHtml = template(data.value);
 			$('.story-results').append(renderedHtml);
 		}
 	})
 }
-
 function showPower(){
 	console.log('show power')
 	$.ajax({
@@ -42,9 +41,9 @@ function showPower(){
 		dataType: 'json',
 		success: function(data){
 			console.log(data);
-			var story = data.story.toString();
 			var template = _.template($('#story-template').html());
-			var renderedHtml = template(story);
+			debugger;
+			var renderedHtml = template(data.value);
 			$('.story-results').append(renderedHtml);
 		}
 	})
@@ -83,9 +82,10 @@ $(function(){
 					showOpponent();
 
 					$('.chosen-character').find('.character-action').on('click',  function(e){
+						e.preventDefault();
 						console.log($(this));
-						// showPower();
-						callFriends();
+						showPower();
+						// callFriends();
 					})
 
 				}
