@@ -1,16 +1,4 @@
 
-<br>
-<br>
-<%= render 'home/navigation' %>
-<% if current_user %>
-	<p>You are logged in as <%=current_user.username%></p>
-<% else %>
-	NOTHING
-<% end %>
-
-
-<!-- 	<h1>Comic SmashUp</h1> -->
-
 <%= form_tag("/search", method: "get", :id => 'search') do %>
   <%= label_tag("Choose your comic book character:") %>
   <%= text_field_tag 'query', '', placeholder: '...Wolverine?' %>

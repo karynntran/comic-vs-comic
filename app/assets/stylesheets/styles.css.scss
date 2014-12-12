@@ -9,7 +9,22 @@
     color: white;
     font-size: 25px;
 	font-family: 'Permanent Marker', cursive;
+	}
+	h1 {
+	float:left;
+	}
+	div {
+	display: inline-block;
+	}
+	#navigation {
+	div {
+		display: inline-block;
+		float: right;
+		font-family: arial;
+		font-size: 15px;
+	}
 }
+
 
 body {
 	background: #FFF8DC;
@@ -48,7 +63,9 @@ a {
 	overflow-y: scroll;
 	background-color: white;
 	display: none;
+	float: left
 }
+
 
 
 #results {

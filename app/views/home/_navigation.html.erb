@@ -1,10 +1,19 @@
-<%= link_to 'Sign Up', new_user_path %>
+<div id="navigation">
 
-<%= link_to 'Log In', login_path %>
+	<div>
+		<% if current_user %>
+			You are logged in as <%=current_user.username%>
+			<div class="logout">
+				<%= form_tag sessions_path, method: 'delete' do %>
+				  <%= submit_tag 'Logout' %>
+				<% end %>
+			</div>
+		<% else %>
+			<div><%= link_to 'Log In', login_path %></div>
+			<div><%= link_to 'Sign Up', new_user_path %></div>
+		<% end %>
+	</div>
 
-<div class="logout">
-	<%= form_tag sessions_path, method: 'delete' do %>
-	  <%= submit_tag 'Logout' %>
-	<% end %>
+
 </div>
 
