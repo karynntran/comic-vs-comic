@@ -24,7 +24,7 @@ function callFriends(){
 	console.log('call friends')
 	$.ajax({
 		url: '/call-friends',
-		data: {friend: friend},
+		data: {friend: name},
 		dataType: 'json',
 		success: function(data){
 			console.log(data);
