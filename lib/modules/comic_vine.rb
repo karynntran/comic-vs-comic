@@ -1,10 +1,10 @@
 module ComicVine
   def self.get_character(query)
     #grab all characters that match the query
-    query = query.gsub(" ","%20")
+    query = query.gsub(" ","+")
 
     all_characters_url = "http://comicvine.com/api/characters/?api_key=#{api_key}&field_list=name,id,api_detail_url&filter=resource_type:character,name:#{query}"
-
+    binding.pry
     api_all_characters = HTTParty.get(all_characters_url)
 
     # need to handle how characters are returned
@@ -24,7 +24,7 @@ module ComicVine
     powers = powers.join(", ")
 
     team_hash = api_single_character["response"]["results"]["teams"]["team"] ||= {}
-    teams = team_hash.map { |team| team["name"] }
+    teams = team_hash.map { |team| team["name"] } #or team_hash["name"]
     teams = teams.join(", ")
 
     team_friends_hash = api_single_character["response"]["results"]["team_friends"]["team"] ||= {}

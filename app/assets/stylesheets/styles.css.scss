@@ -22,9 +22,24 @@ h1 {
 	font-family: 'Permanent Marker', cursive;
 }
 
-#home {
 
+.opponent-character {
+	float: left;
+	width: 300px;
 }
+#opponent {
+	float: left;
+	width: 300px;
+}
+.chosen-character {
+	float: left;
+	width: 300px;
+}
+#results {
+	float: left;
+	width: 300px;
+}
+
 
 #results {
 	.attribute {
@@ -46,3 +61,20 @@ h1 {
 #buttons {
 	display:none;
 }
+
+
+/*clear fix*/
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */

@@ -78,6 +78,7 @@ function showPower(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('.story-results').append(renderedHtml);
+			addReaction();
 		}
 	})
 }
