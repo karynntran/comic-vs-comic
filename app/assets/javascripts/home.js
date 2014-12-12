@@ -20,6 +20,20 @@
 // 	})
 // }
 
+function helpOut(){
+	console.log('help out')
+	$.ajax({
+		url: '/help-out',
+		dataType: 'json',
+		success: function(data){
+			console.log(data);
+			var template = _.template($('#story-template').html());
+			var renderedHtml = template(data.value);
+			$('.story-results').append(renderedHtml);
+		}
+	})
+}
+
 function callFriends(){
 	console.log('call friends')
 	$.ajax({
@@ -28,7 +42,6 @@ function callFriends(){
 		success: function(data){
 			console.log(data);
 			var template = _.template($('#story-template').html());
-			debugger;
 			var renderedHtml = template(data.value);
 			$('.story-results').append(renderedHtml);
 		}
@@ -42,7 +55,6 @@ function showPower(){
 		success: function(data){
 			console.log(data);
 			var template = _.template($('#story-template').html());
-			debugger;
 			var renderedHtml = template(data.value);
 			$('.story-results').append(renderedHtml);
 		}
@@ -84,8 +96,9 @@ $(function(){
 					$('.chosen-character').find('.character-action').on('click',  function(e){
 						e.preventDefault();
 						console.log($(this));
-						showPower();
+						// showPower();
 						// callFriends();
+						helpOut();
 					})
 
 				}

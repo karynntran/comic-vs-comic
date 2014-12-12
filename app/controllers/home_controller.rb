@@ -49,15 +49,25 @@ class HomeController < ApplicationController
     current_char = current_user.stories.last.character_one
     team_friends = Character.find_by({name: current_char}).friends.split(", ").sample.upcase
     result = Friend.all.sample.friend
-    friend = result.gsub('*friends*', "#{team_friends}")
+    friend_story = {story: result.gsub('*friends*', "#{team_friends}")}
 
     story = current_user.stories.last
     story.add_moves
 
-    render json: {"value" => friend}
+    render json: {"value" => friend_story}
   end
 
   def help_out
+    power = current_user.powers.split(", ").sample.upcase
+    opponent = current_user.stories.last.character_two
+
+    user_story = {story: "#{current_user.username.upcase} joins the fray! #{current_user.username.upcase} uses the power of #{power} against #{opponent.upcase}"}
+
+    story = current_user.stories.last
+    story.add_moves
+
+    render json: {"value" => user_story}
+
   end
 
 end
