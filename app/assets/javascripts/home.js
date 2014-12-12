@@ -93,13 +93,15 @@ $(function(){
 
 					showOpponent();
 
-					$('.chosen-character').find('.character-action').on('click',  function(e){
-						e.preventDefault();
-						console.log($(this));
-						// showPower();
-						// callFriends();
-						helpOut();
-					})
+					$('#buttons').show();
+
+					// $('.chosen-character').find('.character-action').on('click',  function(e){
+					// 	e.preventDefault();
+					// 	console.log($(this));
+					// 	// showPower();
+					// 	// callFriends();
+					// 	helpOut();
+					// })
 
 				}
 			}

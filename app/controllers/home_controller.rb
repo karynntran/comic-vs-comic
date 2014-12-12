@@ -58,6 +58,7 @@ class HomeController < ApplicationController
   end
 
   def help_out
+    binding.pry
     power = current_user.powers.split(", ").sample.upcase
     opponent = current_user.stories.last.character_two
 
