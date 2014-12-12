@@ -20,6 +20,12 @@
 // 	})
 // }
 
+// $('#power-button').on('click', function(e){
+// 	e.preventDefault();
+// 	// console.log($(this));
+// 	showPower();
+// })
+
 function helpOut(){
 	console.log('help out')
 	$.ajax({
@@ -95,13 +101,29 @@ $(function(){
 
 					$('#buttons').show();
 
-					// $('.chosen-character').find('.character-action').on('click',  function(e){
-					// 	e.preventDefault();
-					// 	console.log($(this));
-					// 	// showPower();
-					// 	// callFriends();
-					// 	helpOut();
-					// })
+					$('.chosen-character').find('#power-button').on('click',  function(e){
+						e.preventDefault();
+						console.log($(this));
+						// showPower();
+						// callFriends();
+						showPower();
+					})
+
+					$('.chosen-character').find('#friend-button').on('click',  function(e){
+						e.preventDefault();
+						console.log($(this));
+						// showPower();
+						// callFriends();
+						callFriends();
+					})
+
+					$('.chosen-character').find('#help-out-button').on('click',  function(e){
+						e.preventDefault();
+						console.log($(this));
+						// showPower();
+						// callFriends();
+						helpOut();
+					})
 
 				}
 			}
