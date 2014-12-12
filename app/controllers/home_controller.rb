@@ -34,18 +34,20 @@ class HomeController < ApplicationController
   end
 
   def power
-    binding.pry
     current_char = current_user.stories.last.character_one
     opponent = current_user.stories.last.character_two
     power = Character.find_by({name: current_char}).powers.split(", ").sample.upcase
-    power_story = "#{current_char.upcase} uses the power of #{power} against #{opponent.upcase}"
+    power_story = {story: "#{current_char.upcase} uses the power of #{power} against #{opponent.upcase}" }
     story = current_user.stories.last
     story.add_moves
 
     render json: power_story
+
   end
 
   def call_friends
+    current_char = current_user.stories.last.character_one
+    opponent = current_user.stories.last.character_two
   end
 
   def help_out

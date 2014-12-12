@@ -20,19 +20,20 @@
 // 	})
 // }
 
-// function showPower(){
-// 	console.log('show power')
-// 	$.ajax({
-// 		url: '/power',
-// 		data: {power_story: story},
-// 		dataType: 'json',
-// 		success: function(data){
-// 			var template = _.template($('#story-template').html());
-// 			var renderedHtml = template(data);
-// 			$('.story-results').append(renderedHtml);
-// 		}
-// 	})
-// }
+function showPower(){
+	console.log('show power')
+	$.ajax({
+		url: '/power',
+		dataType: 'json',
+		success: function(data){
+			console.log(data);
+			var story = data.story.toString();
+			var template = _.template($('#story-template').html());
+			var renderedHtml = template(story);
+			$('.story-results').append(renderedHtml);
+		}
+	})
+}
 
 function showOpponent(){
 	console.log('show opponent')
@@ -68,6 +69,7 @@ $(function(){
 
 					$('.chosen-character').find('.character-action').on('click',  function(e){
 						console.log($(this));
+						showPower();
 					})
 
 				}
