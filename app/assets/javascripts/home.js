@@ -26,6 +26,20 @@
 // 	showPower();
 // })
 
+function addReaction(){
+	console.log('reaction')
+	$.ajax({
+		url: '/reaction',
+		dataType: 'json',
+		success: function(data){
+			console.log(data);
+			var template = _.template($('#story-template').html());
+			var renderedHtml = template(data.value);
+			$('.story-results').append(renderedHtml);
+		}
+	})
+}
+
 function helpOut(){
 	console.log('help out')
 	$.ajax({
@@ -36,6 +50,7 @@ function helpOut(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('.story-results').append(renderedHtml);
+			addReaction();
 		}
 	})
 }

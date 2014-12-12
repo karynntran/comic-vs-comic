@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/power' => 'home#power'
   get '/call-friends' => 'home#call_friends'
   get '/help-out' => 'home#help_out'
+  get '/reaction' => 'home#reaction'
 
 
   resources :users, :only => [:show, :new, :create, :destroy]

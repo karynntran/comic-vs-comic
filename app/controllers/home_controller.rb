@@ -67,7 +67,15 @@ class HomeController < ApplicationController
     story.add_moves
 
     render json: {"value" => user_story}
+  end
 
+  def reaction
+    # current_char = current_user.stories.last.character_one
+
+    opponent = current_user.stories.last.character_two
+    reaction_story = {story: Reaction.all.sample.reaction.gsub('*char*',"#{opponent.upcase}")}
+
+    render json: {"value" => reaction_story}
   end
 
 end
