@@ -108,6 +108,7 @@ $(function(){
 			data: {query: name},
 			success: function(data){
 				console.log(data);
+				debugger;
 				if (data.name){
 					var template = _.template($('#result-template').html());
 					var renderedHtml = template(data);

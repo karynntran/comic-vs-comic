@@ -1,7 +1,4 @@
-<div id="show">
-
-	<h1>Welcome, <%=@user.first_name%> </h1>
-	<img src="<%=@user.image%>">
-	<p>Name: <%=@user.first_name%></p>
-	<p>Powers: <%=@user.powers%></p>
-</div>
+<h2>Welcome, <%=current_user.first_name%></h2>
+<img src="<%=current_user.image%>">
+<p>Name: <%=current_user.first_name%></p>
+<p>Powers: <%=current_user.powers%></p>

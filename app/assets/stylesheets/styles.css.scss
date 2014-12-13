@@ -1,3 +1,11 @@
+body {
+	background: #FFF8DC;
+	font-family: 'Combo', cursive;
+	height: 100%;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
 .header {
     height: 30px;
     width: 100%;
@@ -10,11 +18,11 @@
     font-size: 25px;
 	font-family: 'Permanent Marker', cursive;
 	}
-	h1 {
-	float:left;
-	}
 	div {
-	display: inline-block;
+		display: inline-block;
+	}
+	h1 {
+		float:left;
 	}
 	#navigation {
 	div {
@@ -24,23 +32,18 @@
 		font-size: 15px;
 	}
 }
-
-
-body {
-	background: #FFF8DC;
-	font-family: 'Combo', cursive;
-	height: 100%;
-    margin-bottom: 30px;
-    padding: 10px;
+form {
+	color: black;
 }
 h1 {
 	font-family: 'Permanent Marker', cursive;
 }
-
-a {
-	font-family: 'Combo', cursive;
+h2 {
+	color: black;
 }
-
+p {
+	color: black
+}
 .opponent-character {
 	float: left;
 	width: 300px;
@@ -65,9 +68,6 @@ a {
 	display: none;
 	float: left
 }
-
-
-
 #results {
 	.attribute {
 		border: 1px lightgray solid;
@@ -84,9 +84,13 @@ a {
 		color: red;
 	}
 }
-
 #buttons {
 	display:none;
+}
+span {
+	p {
+		color: red;
+	}
 }
 
 
