@@ -3,24 +3,37 @@
 <head>
   <title>Comic SmashUp</title>
   
-  <!-- 	 character scripts -->
-
 	<script type='template' id='character-list-item-template'>
 		<%= render 'characters/index' %>
 	</script>	
 
   <%= stylesheet_link_tag    'application', media: 'all'  %>
   <%= javascript_include_tag 'application' %>
-  
+
   <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Combo' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 
-
+<header>
 	<div class="clearfix header">
 		<div>Comic Smash Up!<div>
 		<div><%= render 'home/navigation' %></div>
 	</div>
+
+	<div id="subheader">
+		<div>
+			<%= form_tag("/search", method: "get", :id => 'search') do %>
+			  <%= label_tag("Choose your comic book character:") %>
+			  <%= text_field_tag 'query', '', placeholder: '...Wolverine?' %>
+			  <%= submit_tag("Go!") %>
+			<% end %>
+		</div>
+
+		<div>
+			<%=link_to "See all characters played", "characters" %>
+		</div>
+	</div>
+</header>
 
 <body>
 

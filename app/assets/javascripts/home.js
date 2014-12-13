@@ -116,12 +116,10 @@ $(function(){
 					showOpponent();
 					$('.story-results').find('p').empty();
 					$('.story-results').show();
-
 					$('#buttons').show();
 				}
 				$('.chosen-character').find('#power-button').on('click',  function(e){
 					e.preventDefault();
-
 					console.log($(this));
 					showPower();
 				})

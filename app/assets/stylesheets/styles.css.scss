@@ -2,11 +2,11 @@ body {
 	background: #FFF8DC;
 	font-family: 'Combo', cursive;
 	height: 100%;
-    margin-bottom: 30px;
-    padding: 10px;
+  padding: 10px;
+  margin: 100px 0 0 0;
 }
 
-.header {
+header {
     height: 30px;
     width: 100%;
     top: 0;
@@ -30,6 +30,11 @@ body {
 		float: right;
 		font-family: arial;
 		font-size: 15px;
+	}
+	#subheader {
+    margin: 0 0 100px 0;
+    font-family: helvetica;
+		font-size: 25px;
 	}
 }
 form {
@@ -59,6 +64,7 @@ p {
 .story-results {
 	height: 400px;
 	width: 500px;
+	overflow: hidden;
 	overflow-y: scroll;
 	display: none;
 	float: left;
