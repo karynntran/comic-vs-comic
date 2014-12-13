@@ -33,6 +33,7 @@ header {
 	}
 	h1 {
 		float:left;
+		font-size: 30px;
 	}
 	#navigation {
 	div {
@@ -70,6 +71,7 @@ p {
 .story-results {
 	height: 400px;
 	width: 500px;
+	overflow: hidden;
 	overflow-y: scroll;
 	display: none;
 	float: left;
