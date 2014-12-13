@@ -17,3 +17,18 @@
 	</div>
 
 </div>
+
+<div id='character-index'>
+</div>
+
+<script>
+	var characterCollection = new CharacterCollection(),
+		router;	
+	characterCollection.fetch().done(function(){
+		router = new Router({
+			collection: characterCollection, 
+			$el: $('.character-index')
+		});
+		Backbone.history.start();
+	});
+</script>

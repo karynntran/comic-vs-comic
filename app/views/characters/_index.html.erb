@@ -1,6 +1,3 @@
-<div class='character-index'>
-	<%% collection.each(function(character){  %>
-		<li class="character <%%= character.get("name") %>"></li>
-		<li><%%=name%></li>
-	<%% }) %>
-</div>
+<%% collection.each(function(character){  %>
+	<li class="character <%%= character.get("name") %>"><%%= character.get('name')%></li>
+<%% }) %>

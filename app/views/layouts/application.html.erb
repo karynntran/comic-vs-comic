@@ -2,8 +2,16 @@
 <html>
 <head>
   <title>Comic SmashUp</title>
+  
+  <!-- 	 character scripts -->
+
+	<script type='template' id='character-list-item-template'>
+		<%= render 'characters/index' %>
+	</script>	
+
   <%= stylesheet_link_tag    'application', media: 'all'  %>
   <%= javascript_include_tag 'application' %>
+  
   <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Combo' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
@@ -30,11 +38,7 @@
 		<%= render 'home/story' %>
 	</script>	
 
-<!-- 	 character scripts -->
 
-	<script type='template' id='character-list-item-template'>
-		<%= render 'characters/index' %>
-	</script>	
 
 	<%= yield %>
 
