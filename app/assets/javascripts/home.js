@@ -107,15 +107,15 @@ $(function(){
 			url: '/search',
 			data: {query: name},
 			success: function(data){
+				
 				console.log(data);
-				debugger;
 				if (data.name){
 					var template = _.template($('#result-template').html());
 					var renderedHtml = template(data);
 					$('.chosen-character').html(renderedHtml);
 
 					showOpponent();
-					// $('#story').clear();
+					$('.story-results').find('p').empty();
 					$('.story-results').show();
 
 					$('#buttons').show();
