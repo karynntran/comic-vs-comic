@@ -5,12 +5,12 @@
 			You are logged in as <%=current_user.username%>
 			<div class="logout">
 				<%= form_tag sessions_path, method: 'delete' do %>
-				  <%= submit_tag 'Logout' %>
+				  <%= submit_tag 'Logout', id: 'nav-buttons' %>
 				<% end %>
 			</div>
 		<% else %>
-			<div><%= link_to 'Log In', login_path %></div>
-			<div><%= link_to 'Sign Up', new_user_path %></div>
+			<div><%= link_to 'Log In', login_path, id: 'nav-buttons' %></div>
+			<div><%= link_to 'Sign Up', new_user_path, id: 'nav-buttons' %></div>
 		<% end %>
 	</div>
 
