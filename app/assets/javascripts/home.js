@@ -119,33 +119,26 @@ $(function(){
 					$('.story-results').show();
 
 					$('#buttons').show();
-
+				}
 					$('.chosen-character').find('#power-button').on('click',  function(e){
 						e.preventDefault();
 
 						console.log($(this));
-						// showPower();
-						// callFriends();
 						showPower();
 					})
 
 					$('.chosen-character').find('#friend-button').on('click',  function(e){
 						e.preventDefault();
 						console.log($(this));
-						// showPower();
-						// callFriends();
 						callFriends();
 					})
 
 					$('.chosen-character').find('#help-out-button').on('click',  function(e){
 						e.preventDefault();
 						console.log($(this));
-						// showPower();
-						// callFriends();
 						helpOut();
 					})
 
-				}
 			}
 		})
 
