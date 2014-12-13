@@ -107,7 +107,6 @@ $(function(){
 			url: '/search',
 			data: {query: name},
 			success: function(data){
-				
 				console.log(data);
 				if (data.name){
 					var template = _.template($('#result-template').html());
@@ -120,24 +119,24 @@ $(function(){
 
 					$('#buttons').show();
 				}
-					$('.chosen-character').find('#power-button').on('click',  function(e){
-						e.preventDefault();
+				$('.chosen-character').find('#power-button').on('click',  function(e){
+					e.preventDefault();
 
-						console.log($(this));
-						showPower();
-					})
+					console.log($(this));
+					showPower();
+				})
 
-					$('.chosen-character').find('#friend-button').on('click',  function(e){
-						e.preventDefault();
-						console.log($(this));
-						callFriends();
-					})
+				$('.chosen-character').find('#friend-button').on('click',  function(e){
+					e.preventDefault();
+					console.log($(this));
+					callFriends();
+				})
 
-					$('.chosen-character').find('#help-out-button').on('click',  function(e){
-						e.preventDefault();
-						console.log($(this));
-						helpOut();
-					})
+				$('.chosen-character').find('#help-out-button').on('click',  function(e){
+					e.preventDefault();
+					console.log($(this));
+					helpOut();
+				})
 
 			}
 		})
