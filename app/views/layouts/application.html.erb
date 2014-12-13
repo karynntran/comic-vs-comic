@@ -19,20 +19,6 @@
 		<div>Comic Smash Up!<div>
 		<div><%= render 'home/navigation' %></div>
 	</div>
-
-	<div id="subheader">
-		<div>
-			<%= form_tag("/search", method: "get", :id => 'search') do %>
-			  <%= label_tag("Choose your comic book character:") %>
-			  <%= text_field_tag 'query', '', placeholder: '...Wolverine?' %>
-			  <%= submit_tag("Go!") %>
-			<% end %>
-		</div>
-
-		<div>
-			<%=link_to "See all characters played", "characters" %>
-		</div>
-	</div>
 </header>
 
 <body>

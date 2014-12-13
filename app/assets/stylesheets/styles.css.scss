@@ -3,7 +3,17 @@ body {
 	font-family: 'Combo', cursive;
 	height: 100%;
   padding: 10px;
-  margin: 100px 0 0 0;
+  margin: 40px 0 0 0px;
+  #subheader {
+	  font-family: helvetica;
+		font-size: 15px;
+		background-color: white;
+		padding:10px;
+		width: 100%;
+		top: 0;
+		left: 0;
+		margin: 0 0 0 -10px;
+	}
 }
 
 header {
@@ -16,7 +26,7 @@ header {
     padding: 10px;
     color: white;
     font-size: 25px;
-	font-family: 'Permanent Marker', cursive;
+		font-family: 'Permanent Marker', cursive;
 	}
 	div {
 		display: inline-block;
@@ -31,12 +41,8 @@ header {
 		font-family: arial;
 		font-size: 15px;
 	}
-	#subheader {
-    margin: 0 0 100px 0;
-    font-family: helvetica;
-		font-size: 25px;
-	}
 }
+
 form {
 	color: black;
 }
@@ -64,7 +70,6 @@ p {
 .story-results {
 	height: 400px;
 	width: 500px;
-	overflow: hidden;
 	overflow-y: scroll;
 	display: none;
 	float: left;
