@@ -33,6 +33,12 @@ Backbone.history.start();
 // 	})
 // }
 
+function minimizeHealth(){
+	var currentHealth = parseInt($('#opponent-health-meter').css("width").replace("px",""));
+	var minusTen = currentHealth - 25;
+	$('#opponent-health-meter').css("width", minusTen+"px")
+}
+
 function addReaction(){
 	console.log('reaction')
 	$.ajax({
@@ -86,6 +92,7 @@ function showPower(){
 			var renderedHtml = template(data.value);
 			$('#story-results').append(renderedHtml);
 			addReaction();
+			minimizeHealth();
 		}
 	})
 }
