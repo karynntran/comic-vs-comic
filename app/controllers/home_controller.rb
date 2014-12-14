@@ -34,6 +34,7 @@ class HomeController < ApplicationController
   end
 
   def power
+    binding.pry
     current_char = current_user.stories.last.character_one
     opponent = current_user.stories.last.character_two
     power = Character.find_by({name: current_char}).powers.split(", ").sample.upcase

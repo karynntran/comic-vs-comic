@@ -28,7 +28,7 @@ var Router = Backbone.Router.extend({
     this.collection = options.collection;
   },
   index: function(){
-    console.log('Router to render character index');
+    console.log('Router to render characters');
     this.collection.fetch().done(function(){
       var characterListView = new CharacterListView({
         el: $('.characters'),

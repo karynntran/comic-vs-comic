@@ -23,6 +23,15 @@ characterCollection.fetch().done(function(){
 });
 Backbone.history.start();
 
+// function seeAllCharacters(){
+// 	$.ajax({
+// 		url: '/characters',
+// 		dataType: 'json',
+// 		success: function(data){
+
+// 		}
+// 	})
+// }
 
 function addReaction(){
 	console.log('reaction')
