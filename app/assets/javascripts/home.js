@@ -1,4 +1,28 @@
 // AJAX CALL FROM SEE ALL CHARACTERS LINK
+// BACKBONE SCRIPTS
+
+// // <script>
+// 	var characterCollection = new CharacterCollection(),
+// 		router;	
+// 	characterCollection.fetch().done(function(){
+// 		router = new Router({
+// 			collection: characterCollection, 
+// 			$el: $('.character-index')
+// 		});
+// 		Backbone.history.start();
+// 	});
+// // </script>
+
+var characterCollection = new CharacterCollection();
+var characterListView = new CharacterListView({collection: characterCollection});
+var characterView = new CharacterView({model: Character})
+
+characterCollection.fetch().done(function(){
+	var characterRouter = new Router({
+  		collection: characterCollection
+	});
+});
+Backbone.history.start();
 
 
 function addReaction(){
