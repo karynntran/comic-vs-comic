@@ -1,33 +1,37 @@
-<div id="subheader">
-	<div>
-		<%= form_tag("/search", method: "get", :id => 'search') do %>
-		  <%= label_tag("Choose your comic book character:") %>
-		  <%= text_field_tag 'query', '', placeholder: '...Wolverine?' %>
-		  <%= submit_tag("Go!") %>
-		<% end %>
+<div class="row">
+	<div id="subheader" class: "twelve columns">
+		<div class="nine columns">
+				<%= form_tag("/search", method: "get", :id => 'search') do %>
+				  <%= label_tag("Choose your comic book character:") %>
+				  <%= text_field_tag 'query', '', placeholder: '...Wolverine?' %>
+				  <%= submit_tag("Go!") %>
+				<% end %>
+		</div>
+
+		<div class="three columns">
+			<%=link_to "See all characters played", "characters" %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="chosen-character" class="two columns">
 	</div>
 
-	<div>
-		<%=link_to "See all characters played", "characters" %>
+	<div class="opponent-character" class="two columns">
+	</div>
+
+	<div class="story-results" class="four columns">
+	</div>
+</div>
+
+<div class="row">
+	<div id="character-index" class="twelve columns">
 	</div>
 </div>
 
 
-<div id="clearfix home">
 
-	<div class='chosen-character'>
-	</div>
-
-	<div class='opponent-character'>
-	</div>
-
-	<div class='story-results'>
-	</div>
-
-	<div id='character-index'>
-	</div>
-
-</div>
 
 <script>
 	var characterCollection = new CharacterCollection(),

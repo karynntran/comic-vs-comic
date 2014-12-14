@@ -5,39 +5,35 @@ body {
   margin: 40px 0 0 0px;
   #subheader {
 		font-size: 15px;
+		height: 50px;
 		background-color: white;
 		padding:10px;
-		width: 100%;
-		top: 0;
-		left: 0;
 		margin: 0 0 0 -10px;
+		width: 100%;
 	}
 }
 
 header {
-    height: 30px;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background-color: black;
-    padding: 10px;
-    color: white;
-    font-size: 25px;
-		font-family: 'Permanent Marker', cursive;
-	}
-	div {
-		display: inline-block;
+  height: 50px;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color: black;
+  padding: 10px;
+  color: white;
+  font-size: 25px;
+	font-family: 'Permanent Marker', cursive;
 	}
 	h1 {
-		float:left;
 		font-size: 30px;
+	}
+	nav {
+		text-align: right;
 	}
 	#navigation {
 	div {
-		display: inline-block;
-		float: right;
 		font-size: 15px;
+		text-align: right;
 	}
 }
 
@@ -54,24 +50,17 @@ p {
 	color: black
 }
 .opponent-character {
-	float: left;
-	width: 300px;
 }
 #opponent {
-	float: left;
-	width: 300px;
 }
 .chosen-character {
-	float: left;
-	width: 300px;
 }
 .story-results {
 	height: 400px;
-	width: 500px;
 	overflow: hidden;
 	overflow-y: scroll;
 	display: none;
-	float: left;
+
 	#story-text {
 		color: white;
 		background-color: blue;
@@ -80,14 +69,12 @@ p {
 	}
 }
 #results {
-	float: left;
-	width: 300px;
+
 	.attribute {
 		border: 1px lightgray solid;
 		padding: 5px;
 		margin: 5px 0;
 		background: white;
-		width: 300px;
 		max-height: 200px;
 		height: auto;
 		overflow-y: scroll;
@@ -114,18 +101,4 @@ span {
 	border-radius: 4px;
 }
 
-/*clear fix*/
-
-.clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
-.clearfix { display: inline-block; }
-/* start commented backslash hack \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
-/* close commented backslash hack */
+/**/
