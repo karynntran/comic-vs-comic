@@ -13,9 +13,8 @@
 // 	});
 // // </script>
 
+
 var characterCollection = new CharacterCollection();
-var characterListView = new CharacterListView({collection: characterCollection});
-var characterView = new CharacterView({model: Character})
 
 characterCollection.fetch().done(function(){
 	var characterRouter = new Router({

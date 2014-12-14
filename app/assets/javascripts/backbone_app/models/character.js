@@ -1,4 +1,4 @@
-console.log("character model...");
+console.log("...character model");
 
 var Character = Backbone.Model.extend({
 });

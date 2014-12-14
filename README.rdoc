@@ -1,28 +1,15 @@
-== README
+<h1>COMIC SMASH UP</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<strong>Description:</strong><br>
+Comic SmashUp is story-generator game that lets you match up comic book superheroes and villains against each other and see who would win when they face each other head on. As a user, you can select your favorite character and determine how to defeat your opponent. Your user character can even join the fight! The game outcomes are always random, so you'll get a new story every time.
 
-Things you may want to cover:
+<strong><br>How It Works:</strong> Once logged in, the user can search for a superhero or villain to play. If that character is found, an opponent will be selected at random as the character's match-up. Now you can choose whether to use the character's powers, call for help, or join in the battle yourself!
 
-* Ruby version
+<strong><br>Navigation:</strong> Comic Smash-Up primarily has single-page functionality.
 
-* System dependencies
+<strong><br>Languages:</strong> Rails, Javascript, SQL, HTML, CSS
 
-* Configuration
+<strong><br>Libraries:</strong> Backbone, Underscore, JQuery, Skeleton
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+<strong>API</strong>:<br> Information provided by the ComicVine API
+http://www.comicvine.com/api/documentation
