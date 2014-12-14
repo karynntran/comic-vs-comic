@@ -1,3 +1,6 @@
+// AJAX CALL FROM SEE ALL CHARACTERS LINK
+
+
 function addReaction(){
 	console.log('reaction')
 	$.ajax({
@@ -86,7 +89,7 @@ $(function(){
 					$('#chosen-character').html(renderedHtml);
 				};
 				showOpponent();
-				$('#story-results').find('p').empty();
+				$('#story-results').empty();
 				$('#story-results').show();
 
 				$('#buttons').show();
