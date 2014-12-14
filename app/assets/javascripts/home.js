@@ -1,31 +1,3 @@
-// console.log(':)')
-
-// var character = new Character(), router;
-// chracter.fetch().done(function(){
-// 	router = new Router({
-// 		model: character,
-// 		$el: $()
-// 	})
-// })
-
-// // Backbone.history.start();
-// function startGame(){
-// 	$.ajax({
-// 		url: '/start_game',
-// 		method: 'GET',
-// 		dataType: 'json',
-// 		success: function(data){
-// 			var new_game = data;
-// 		}
-// 	})
-// }
-
-// $('#power-button').on('click', function(e){
-// 	e.preventDefault();
-// 	// console.log($(this));
-// 	showPower();
-// })
-
 function addReaction(){
 	console.log('reaction')
 	$.ajax({
@@ -112,25 +84,26 @@ $(function(){
 					var template = _.template($('#result-template').html());
 					var renderedHtml = template(data);
 					$('#chosen-character').html(renderedHtml);
+				};
+				showOpponent();
+				$('#story-results').find('p').empty();
+				$('#story-results').show();
 
-					showOpponent();
-					$('#story-results').find('p').empty();
-					$('#story-results').show();
-					$('#buttons').show();
-				}
-				$('#chosen-character').find('#power-button').on('click',  function(e){
+				$('#buttons').show();
+
+				$('#power-button').on('click',  function(e){
 					e.preventDefault();
 					console.log($(this));
 					showPower();
-				})
+				});
 
-				$('#chosen-character').find('#friend-button').on('click',  function(e){
+				$('#friend-button').on('click',  function(e){
 					e.preventDefault();
 					console.log($(this));
 					callFriends();
 				})
 
-				$('#chosen-character').find('#help-out-button').on('click',  function(e){
+				$('#help-out-button').on('click',  function(e){
 					e.preventDefault();
 					console.log($(this));
 					helpOut();
@@ -138,9 +111,7 @@ $(function(){
 
 			}
 		})
-
 	})
-
 })
 
 
