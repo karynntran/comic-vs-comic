@@ -35,7 +35,7 @@ function addReaction(){
 			console.log(data);
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
-			$('.story-results').append(renderedHtml);
+			$('#story-results').append(renderedHtml);
 		}
 	})
 }
@@ -49,7 +49,7 @@ function helpOut(){
 			console.log(data);
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
-			$('.story-results').append(renderedHtml);
+			$('#story-results').append(renderedHtml);
 			addReaction();
 		}
 	})
@@ -64,7 +64,7 @@ function callFriends(){
 			console.log(data);
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
-			$('.story-results').append(renderedHtml);
+			$('#story-results').append(renderedHtml);
 		}
 	})
 }
@@ -77,7 +77,7 @@ function showPower(){
 			console.log(data);
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
-			$('.story-results').append(renderedHtml);
+			$('#story-results').append(renderedHtml);
 			addReaction();
 		}
 	})
@@ -93,7 +93,7 @@ function showOpponent(){
 		success: function(data){
 			var template = _.template($('#opponent-template').html());
 			var renderedHtml = template(data);
-			$('.opponent-character').html(renderedHtml);
+			$('#opponent-character').html(renderedHtml);
 		}
 	})
 }
@@ -111,26 +111,26 @@ $(function(){
 				if (data.name){
 					var template = _.template($('#result-template').html());
 					var renderedHtml = template(data);
-					$('.chosen-character').html(renderedHtml);
+					$('#chosen-character').html(renderedHtml);
 
 					showOpponent();
-					$('.story-results').find('p').empty();
-					$('.story-results').show();
+					$('#story-results').find('p').empty();
+					$('#story-results').show();
 					$('#buttons').show();
 				}
-				$('.chosen-character').find('#power-button').on('click',  function(e){
+				$('#chosen-character').find('#power-button').on('click',  function(e){
 					e.preventDefault();
 					console.log($(this));
 					showPower();
 				})
 
-				$('.chosen-character').find('#friend-button').on('click',  function(e){
+				$('#chosen-character').find('#friend-button').on('click',  function(e){
 					e.preventDefault();
 					console.log($(this));
 					callFriends();
 				})
 
-				$('.chosen-character').find('#help-out-button').on('click',  function(e){
+				$('#chosen-character').find('#help-out-button').on('click',  function(e){
 					e.preventDefault();
 					console.log($(this));
 					helpOut();

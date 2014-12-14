@@ -27,7 +27,6 @@
 	<script type='template' id='story-template'>
 		<%= render 'home/story' %>
 	</script>	
-
 </head>
 
 <div class="container">
@@ -36,22 +35,16 @@
 			<div class="six columns">
 				<h1>Comic Smash Up!</h1>
 			</div>
-			<div class="six columns">
 				<%= render 'home/navigation' %>
-			</div>
 		</header>
 	</div>
 </div>
 
 <body>
 	<div class="container">
-
-
-
-		<%= yield %>
-
+			<%= yield %>
+		</div>
 	</div>
-
 </body>
 
 </html>

@@ -2,15 +2,17 @@ body {
 	background: #FFF8DC;
 	height: 100%;
   padding: 10px;
-  margin: 40px 0 0 0px;
-  #subheader {
-		font-size: 15px;
-		height: 50px;
-		background-color: white;
-		padding:10px;
-		margin: 0 0 0 -10px;
-		width: 100%;
-	}
+  margin-top: 20px;
+}
+
+#subheader {
+	font-size: 15px;
+	height: 40px;
+	background-color: white;
+	padding:10px;
+	width: 100%;
+	position: fixed;
+	left: 0;
 }
 
 header {
@@ -23,18 +25,26 @@ header {
   color: white;
   font-size: 25px;
 	font-family: 'Permanent Marker', cursive;
-	}
 	h1 {
 		font-size: 30px;
 	}
-	nav {
+}
+
+#navigation {
+	font-size: 15px;
+	float: right;
+	#nav-user{
+		text-align: left;
+	}
+	#logout {
 		text-align: right;
 	}
-	#navigation {
-	div {
-		font-size: 15px;
-		text-align: right;
-	}
+}
+
+#content {
+	margin-top: 80px;
+	width: 100%;
+	left: 0;
 }
 
 form {
@@ -49,28 +59,10 @@ h2 {
 p {
 	color: black
 }
-.opponent-character {
-}
-#opponent {
-}
-.chosen-character {
-}
-.story-results {
-	height: 400px;
-	overflow: hidden;
-	overflow-y: scroll;
-	display: none;
 
-	#story-text {
-		color: white;
-		background-color: blue;
-		opacity: 0.4;
-		font-size: 15px;
-	}
-}
 #results {
-
 	.attribute {
+		width: 100%;
 		border: 1px lightgray solid;
 		padding: 5px;
 		margin: 5px 0;
@@ -87,6 +79,25 @@ p {
 #buttons {
 	display:none;
 }
+
+#opponent {
+	width: 100%;
+}
+
+#story-text {
+	width: 100%;
+	color: white;
+	background-color: blue;
+	opacity: 0.4;
+	font-size: 15px;
+}
+#story-results {
+	height: 400px;
+	overflow: hidden;
+	overflow-y: scroll;
+	display: none;
+}
+
 span {
 	p {
 		color: red;
@@ -100,5 +111,3 @@ span {
 	margin: 0 3px;
 	border-radius: 4px;
 }
-
-/**/
