@@ -69,8 +69,12 @@ function opponentPower(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').append(renderedHtml);
-			reactionToOpponent();
-			minimizeCharacterHealth();
+
+			setTimeout(function () {
+			    reactionToOpponent();
+				minimizeCharacterHealth();
+			}, 1000);
+
 		}
 	})
 }
@@ -85,7 +89,10 @@ function addReaction(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').append(renderedHtml);
-			opponentPower();
+			
+			setTimeout(function () {
+			    opponentPower();
+			}, 1000);
 		}
 	})
 }
@@ -128,8 +135,12 @@ function showPower(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').append(renderedHtml);
-			addReaction();
-			minimizeOpponentHealth();
+						
+			setTimeout(function () {
+			    addReaction();
+			    minimizeOpponentHealth();
+			}, 1000);
+
 		}
 	})
 }
