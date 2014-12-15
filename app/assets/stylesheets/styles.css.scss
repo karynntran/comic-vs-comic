@@ -60,20 +60,26 @@ p {
 	color: black
 }
 #opponent-health-meter, #character-health-meter {
-	height: auto;
+	height: 30px;
 	width: 250px;
 	border-radius: 5px;
 	background-color: green;
 	padding: 3px;
-	background: -webkit-gradient(linear, left top, right top, from(#00FF00), to(#FF0000));
+	background: -webkit-gradient(linear, left top, right top, from(#FF0000), to(#00FF00));
 	/* Safari 5.1, Chrome 10+ */
-    background: -webkit-linear-gradient(left, #00FF00, #FF0000);
+    background: -webkit-linear-gradient(left, #FF0000, #00FF00);
     /* Firefox 3.6+ */
-    background: -moz-linear-gradient(left, #00FF00, #FF0000);
+    background: -moz-linear-gradient(left, #FF0000, #00FF00);
     /* IE 10 */
-    background: -ms-linear-gradient(left, #00FF00, #FF0000);
+    background: -ms-linear-gradient(left, #FF0000, #00FF00);
     /* Opera 11.10+ */
-    background: -o-linear-gradient(left, #00FF00, #FF0000);
+    background: -o-linear-gradient(left, #FF0000, #00FF00);
+}
+
+.health-image {
+	width: auto;
+	height: 25px;
+	vertical-align: middle;
 }
 
 #results {
@@ -88,7 +94,7 @@ p {
 	width: 100%;
 }
 
-img {
+.character-image {
 	border-radius: 10px;
 	border: 1px solid gray;
 }
