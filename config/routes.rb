@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/call-friends' => 'home#call_friends'
   get '/help-out' => 'home#help_out'
   get '/reaction' => 'home#reaction'
+  get '/opponent-power' => 'home#opponent_power'
+  get '/reaction-to-opponent' => 'home#reaction_to_opponent'
 
   get '/characters' => 'character#index'
 

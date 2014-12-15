@@ -4,7 +4,7 @@ class Story < ActiveRecord::Base
 
   def add_moves
     self.moves += 1
-    self.save
+    self.save!
   end
 
   # def call_powers

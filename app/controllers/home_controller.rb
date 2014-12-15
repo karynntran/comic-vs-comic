@@ -42,7 +42,6 @@ class HomeController < ApplicationController
     story.add_moves
 
     render json: {"value" => power_story}
-
   end
 
   def call_friends
@@ -71,11 +70,27 @@ class HomeController < ApplicationController
 
   def reaction
     # current_char = current_user.stories.last.character_one
-
     opponent = current_user.stories.last.character_two
     reaction_story = {story: Reaction.all.sample.reaction.gsub('*char*',"#{opponent.upcase}")}
 
     render json: {"value" => reaction_story}
+  end
+
+  ### opponent actions ###
+  def opponent_power
+    current_char = current_user.stories.last.character_one
+    opponent = current_user.stories.last.character_two
+    power = Character.find_by({name: opponent}).powers.split(", ").sample.upcase
+    opponent_power_story = {story: "#{opponent.upcase} uses the power of #{power} against #{current_char.upcase}" }
+
+    render json: {"value" => opponent_power_story}
+  end
+
+  def reaction_to_opponent
+    current_char = current_user.stories.last.character_one
+    opponent_reaction_story = {story: Reaction.all.sample.reaction.gsub('*char*',"#{current_char.upcase}")}
+
+    render json: {"value" => opponent_reaction_story}
   end
 
 end

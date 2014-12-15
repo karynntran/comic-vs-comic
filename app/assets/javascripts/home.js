@@ -33,10 +33,46 @@ Backbone.history.start();
 // 	})
 // }
 
-function minimizeHealth(){
+function minimizeOpponentHealth(){
 	var currentHealth = parseInt($('#opponent-health-meter').css("width").replace("px",""));
 	var minusTen = currentHealth - 25;
 	$('#opponent-health-meter').css("width", minusTen+"px")
+}
+
+function minimizeCharacterHealth(){
+	var currentHealth = parseInt($('#character-health-meter').css("width").replace("px",""));
+	var minusTen = currentHealth - 25;
+	$('#character-health-meter').css("width", minusTen+"px")
+}
+
+function reactionToOpponent(){
+	console.log('reaction')
+	$.ajax({
+		url: '/reaction-to-opponent',
+		dataType: 'json',
+		success: function(data){
+			console.log(data);
+			var template = _.template($('#story-template').html());
+			var renderedHtml = template(data.value);
+			$('#story-results').append(renderedHtml);
+		}
+	})
+}
+
+function opponentPower(){
+	console.log('reaction')
+	$.ajax({
+		url: '/opponent-power',
+		dataType: 'json',
+		success: function(data){
+			console.log(data);
+			var template = _.template($('#story-template').html());
+			var renderedHtml = template(data.value);
+			$('#story-results').append(renderedHtml);
+			reactionToOpponent();
+			minimizeCharacterHealth();
+		}
+	})
 }
 
 function addReaction(){
@@ -49,6 +85,7 @@ function addReaction(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').append(renderedHtml);
+			opponentPower();
 		}
 	})
 }
@@ -92,7 +129,7 @@ function showPower(){
 			var renderedHtml = template(data.value);
 			$('#story-results').append(renderedHtml);
 			addReaction();
-			minimizeHealth();
+			minimizeOpponentHealth();
 		}
 	})
 }
