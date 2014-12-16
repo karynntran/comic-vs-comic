@@ -9,20 +9,7 @@
   <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Combo' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width", initial-scale=1, maximum-scale=1>
-
-
-<!-- 	 home scripts -->
-	<script type='template' id='result-template'>
-		<%= render 'home/results' %>
-	</script>
-
-	<script type='template' id='opponent-template'>
-		<%= render 'home/opponent' %>
-	</script>
-
-	<script type='template' id='story-template'>
-		<%= render 'home/story' %>
-	</script>	
+	
 </head>
 
 <div class="container">
@@ -32,20 +19,57 @@
 				<h1>Comic Smash Up!</h1>
 			</div>
 				<%= render 'home/navigation' %>
+
 		</header>
 	</div>
 </div>
 
 <body>
 	<div class="container">
-		<%= yield %>
+		
 
-		<ul class="characters">
+<div class="row">
+	<div id="subheader" class: "twelve columns">
+		<div class="nine columns">
+				<%= form_tag("/search", method: "get", :id => 'search') do %>
+				  <%= label_tag("Choose your comic book character:") %>
+				  <%= text_field_tag 'query', '', placeholder: '...Wolverine?' %>
+				  <%= submit_tag("Go!") %>
+				<% end %>
+		</div>
 
-		</ul>
-		<script type='template' id='character-list-item-template'>
-			<%= render 'home/character' %>
-		</script>
+		<div class="three columns">
+			<button class="character-action" id="all-chars">See all characters played</button>
+		</div>
+	</div>
+</div>
+
+
+
+
+		<div id="game-area">
+			<%= yield %>
+
+			<ul class="characters">
+
+			</ul>
+			<script type='template' id='character-list-item-template'>
+				<%= render 'home/character' %>
+			</script>
+
+					<!-- 	 home scripts -->
+			<script type='template' id='result-template'>
+				<%= render 'home/results' %>
+			</script>
+
+			<script type='template' id='opponent-template'>
+				<%= render 'home/opponent' %>
+			</script>
+
+			<script type='template' id='story-template'>
+				<%= render 'home/story' %>
+			</script>
+		</div>
 	</div>
 </body>
 
