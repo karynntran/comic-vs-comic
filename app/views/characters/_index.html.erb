@@ -1,4 +1,16 @@
-<h2>Characters Used</h2>
+<!-- <h2>Characters Used</h2>
 
-	<ul class='characters'></ul>
+	<ul class="characters">
+		<li><%%= name %><li>
+	</ul>
 	    
+<script>
+	var characterCollection = new CharacterCollection();
+	
+	characterCollection.fetch().done(function(){
+		var characterRouter = new Router({
+	  		collection: characterCollection
+		});
+	});
+	Backbone.history.start();
+</script> -->

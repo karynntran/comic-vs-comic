@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Comic SmashUp</title>
-  
-	<script type='template' id='character-list-item-template'>
-		<h2><%%= name %></h2>
-		<%= render 'characters/index' %>
-	</script>	
+  <title>Comic SmashUp</title>	
 
   <%= stylesheet_link_tag    'application', media: 'all'  %>
-  <%= javascript_include_tag 'application' %>
+
 
   <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Combo' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
@@ -43,9 +38,18 @@
 
 <body>
 	<div class="container">
-			<%= yield %>
-		</div>
+		<%= yield %>
+
+		<h2>Characters Used</h2>
+
+		<ul class="characters">
+
+		</ul>
+		<script type='template' id='character-list-item-template'>
+			<%= render 'home/character' %>
+		</script>
 	</div>
 </body>
 
+  <%= javascript_include_tag 'application' %>
 </html>

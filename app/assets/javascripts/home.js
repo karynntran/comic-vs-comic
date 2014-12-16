@@ -14,15 +14,6 @@
 // // </script>
 
 
-var characterCollection = new CharacterCollection();
-
-characterCollection.fetch().done(function(){
-	var characterRouter = new Router({
-  		collection: characterCollection
-	});
-});
-Backbone.history.start();
-
 // function seeAllCharacters(){
 // 	$.ajax({
 // 		url: '/characters',
@@ -32,6 +23,20 @@ Backbone.history.start();
 // 		}
 // 	})
 // }
+
+
+	var characterCollection = new CharacterCollection();
+
+	characterCollection.fetch({
+		success: function(characters) {
+			characterListView = new CharacterListView({collection: characters });
+		}
+	});
+	Backbone.history.start();
+
+// function autoScroll(){
+//   $('story-results').scrollTop = $('story-results').scrollHeight;
+// };
 
 function minimizeOpponentHealth(){
 	var currentHealth = parseInt($('#opponent-health-meter').css("width").replace("px",""));
@@ -54,7 +59,7 @@ function reactionToOpponent(){
 			console.log(data);
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
-			$('#story-results').append(renderedHtml);
+			$('#story-results').prepend(renderedHtml);
 		}
 	})
 }
@@ -68,7 +73,7 @@ function opponentPower(){
 			console.log(data);
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
-			$('#story-results').append(renderedHtml);
+			$('#story-results').prepend(renderedHtml);
 
 			setTimeout(function () {
 			    reactionToOpponent();
@@ -88,11 +93,12 @@ function addReaction(){
 			console.log(data);
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
-			$('#story-results').append(renderedHtml);
+			$('#story-results').prepend(renderedHtml);
 			
 			setTimeout(function () {
 			    opponentPower();
 			}, 1000);
+
 		}
 	})
 }
@@ -106,7 +112,7 @@ function helpOut(){
 			console.log(data);
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
-			$('#story-results').append(renderedHtml);
+			$('#story-results').prepend(renderedHtml);
 			addReaction();
 		}
 	})
@@ -121,7 +127,7 @@ function callFriends(){
 			console.log(data);
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
-			$('#story-results').append(renderedHtml);
+			$('#story-results').prepend(renderedHtml);
 		}
 	})
 }
@@ -134,13 +140,13 @@ function showPower(){
 			console.log(data);
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
-			$('#story-results').append(renderedHtml);
+			$('#story-results').prepend(renderedHtml);
+			$('#story-text').css("border","yellow 2px solid");
 						
 			setTimeout(function () {
 			    addReaction();
 			    minimizeOpponentHealth();
-			}, 1000);
-
+			}, 2000);
 		}
 	})
 }

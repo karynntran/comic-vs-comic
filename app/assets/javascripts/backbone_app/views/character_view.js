@@ -4,6 +4,7 @@ var CharacterView = Backbone.View.extend({
     tagName: 'li',
     className: 'character-view',
     initialize: function(){
+      console.log('sup')
       this.render();
     },
     template: _.template($('#character-list-item-template').html()),
