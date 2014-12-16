@@ -14,17 +14,9 @@
 // // </script>
 
 
-// function seeAllCharacters(){
-// 	$.ajax({
-// 		url: '/characters',
-// 		dataType: 'json',
-// 		success: function(data){
-
-// 		}
-// 	})
-// }
 
 
+function showAllCharacters(){
 	var characterCollection = new CharacterCollection();
 
 	characterCollection.fetch({
@@ -33,6 +25,19 @@
 		}
 	});
 	Backbone.history.start();
+}
+
+
+
+
+	// var characterCollection = new CharacterCollection();
+
+	// characterCollection.fetch({
+	// 	success: function(characters) {
+	// 		characterListView = new CharacterListView({collection: characters });
+	// 	}
+	// });
+	// Backbone.history.start();
 
 // function autoScroll(){
 //   $('story-results').scrollTop = $('story-results').scrollHeight;
@@ -167,6 +172,10 @@ function showOpponent(){
 }
 
 $(function(){
+	$('#all-chars').on('click',  function(e){
+		e.preventDefault();
+		showAllCharacters();
+	})
 
 	$('#search').on('submit', function(e){
 		e.preventDefault();
