@@ -65,6 +65,6 @@ module ComicVine
   end
 
   def self.api_key
-    ENV['ComicVine']
+    ENV['COMICVINE']
   end
 end
