@@ -1,4 +1,5 @@
 
+
 function showAllCharacters(){
 	var characterCollection = new CharacterCollection();
 
