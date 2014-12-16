@@ -1,20 +1,3 @@
-// AJAX CALL FROM SEE ALL CHARACTERS LINK
-// BACKBONE SCRIPTS
-
-// // <script>
-// 	var characterCollection = new CharacterCollection(),
-// 		router;	
-// 	characterCollection.fetch().done(function(){
-// 		router = new Router({
-// 			collection: characterCollection, 
-// 			$el: $('.character-index')
-// 		});
-// 		Backbone.history.start();
-// 	});
-// // </script>
-
-
-
 
 function showAllCharacters(){
 	var characterCollection = new CharacterCollection();
@@ -26,22 +9,6 @@ function showAllCharacters(){
 	});
 	Backbone.history.start();
 }
-
-
-
-
-	// var characterCollection = new CharacterCollection();
-
-	// characterCollection.fetch({
-	// 	success: function(characters) {
-	// 		characterListView = new CharacterListView({collection: characters });
-	// 	}
-	// });
-	// Backbone.history.start();
-
-// function autoScroll(){
-//   $('story-results').scrollTop = $('story-results').scrollHeight;
-// };
 
 function minimizeOpponentHealth(){
 	var currentHealth = parseInt($('#opponent-health-meter').css("width").replace("px",""));
