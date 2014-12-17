@@ -112,6 +112,9 @@ class HomeController < ApplicationController
     # MOVE TO STORY CONTROLLER ALL /stories/:id/reaction
 
     # current_char = current_user.stories.last.character_one
+    story = current_user.stories.last
+    story.
+
     opponent = current_user.stories.last.character_two
     rand_reaction = Reaction.all.sample
     reaction_type = rand_reaction.hit_or_miss

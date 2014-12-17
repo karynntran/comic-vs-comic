@@ -2,8 +2,6 @@ class Story < ActiveRecord::Base
 
   before_create :zero_moves
 
-
-
   def add_char_moves!
     self.char_one_moves += 1
     self.save!
@@ -14,10 +12,6 @@ class Story < ActiveRecord::Base
     self.save!
   end
 
-  def recieve_opponent_damage!
-    self.opponent_damage += 10
-    self.save
-  end
 
   # def call_powers
   #   #random power using current character

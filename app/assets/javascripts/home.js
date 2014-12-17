@@ -18,7 +18,6 @@ function minimizeOpponentHealth(type){
 	if (type === "hit"){
 		$('#opponent-health-meter').css("width", minusTen+"px")
 	}
-	
 }
 
 function minimizeCharacterHealth(type){
