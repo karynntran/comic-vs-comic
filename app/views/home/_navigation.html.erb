@@ -5,9 +5,9 @@
 			<img id="avatar" src="<%=current_user.image%>">
 		</div>
 		<div class="three columns" id="logout">
-				<%= form_tag sessions_path, method: 'delete' do %>
-				  <%= submit_tag 'Logout', id: 'nav-buttons' %>
-				<% end %>
+			<%= form_tag sessions_path, method: 'delete' do %>
+			  <%= submit_tag 'Logout', id: 'nav-buttons' %>
+			<% end %>
 		</div>
 	<% else %>
 		<div class="one-half">

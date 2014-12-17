@@ -6,23 +6,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-reactions = [
-  "*char* goes flying across the city streets!",
-  "*char* looks extremely uncomfortable.",
-  "*char* laughs with derision.",
-  "*char* groans, in pain.",
-  "*char* blocks the move!",
-  "*char* shields just in time.",
-  "*char* says 'Is that all you got?'",
-  "*char* gets thrown across the street, narrowly hitting the innocent civilians!",
-  "*char* shakes his/her fist in anger.",
-  "*char* shakes his/her head.",
-  "*char* feels trapped."
-]
 
-reactions.each do |reaction|
-  Reaction.create(reaction: reaction)
-end
+Reaction.create(reaction: "*char* goes flying across the city streets!",hit_or_miss: "hit")
+Reaction.create(reaction: "*char* groans, in pain.",hit_or_miss: "hit")
+Reaction.create(reaction: "*char* gets thrown across the street, narrowly missing the innocent civilians!",hit_or_miss: "hit")
+Reaction.create(reaction: "*char* shakes his/her fist in anger.",hit_or_miss: "hit")
+Reaction.create(reaction: "*char* crashes onto the floor.",hit_or_miss: "hit" )
+Reaction.create(reaction: "*char* feels trapped.",hit_or_miss: "hit")
+Reaction.create(reaction: "*char* dodges but looks extremely uncomfortable.",hit_or_miss: "miss")
+Reaction.create(reaction: "*char* laughs with derision.",hit_or_miss: "miss")
+Reaction.create(reaction: "*char* blocks the move!",hit_or_miss: "miss")
+Reaction.create(reaction: "*char* shields just in time.",hit_or_miss: "miss")
+Reaction.create(reaction: "*char* scoffs 'Is that all you got?'",hit_or_miss: "miss")
+Reaction.create(reaction: "*char* shakes his/her head.",hit_or_miss: "miss")
+
+
+# reactions.each do |reaction,hit_or_miss|
+#   Reaction.create(reaction: reaction, hit_or_miss: hit_or_miss)
+# end
 
 friends = [
 "*friends* are here and they’re ready to fight.",

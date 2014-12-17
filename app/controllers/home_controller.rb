@@ -15,11 +15,10 @@ class HomeController < ApplicationController
         api_character = ComicVine.get_character(query)
         @character = Character.create(api_character)
       else
-        flash.now[:error] = "No character found. Search again."
+        flash.now[:error] = "#{query} is not found. Search again."
         redirect_to root_path
       end
     end
-
     story_data = {
       user_id: current_user.id,
       character_one: @character.name,
