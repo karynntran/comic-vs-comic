@@ -11,16 +11,23 @@ function showAllCharacters(){
 	Backbone.history.start();
 }
 
-function minimizeOpponentHealth(){
+function minimizeOpponentHealth(type){
+	
 	var currentHealth = parseInt($('#opponent-health-meter').css("width").replace("px",""));
 	var minusTen = currentHealth - 25;
-	$('#opponent-health-meter').css("width", minusTen+"px")
+	if (type === "hit"){
+		$('#opponent-health-meter').css("width", minusTen+"px")
+	}
+	
 }
 
-function minimizeCharacterHealth(){
+function minimizeCharacterHealth(type){
+	debugger;
 	var currentHealth = parseInt($('#character-health-meter').css("width").replace("px",""));
 	var minusTen = currentHealth - 25;
-	$('#character-health-meter').css("width", minusTen+"px")
+	if (type === "hit"){
+		$('#character-health-meter').css("width", minusTen+"px")
+	}
 }
 
 function reactionToOpponent(){
@@ -30,9 +37,16 @@ function reactionToOpponent(){
 		dataType: 'json',
 		success: function(data){
 			console.log(data);
+			var type = data.value.type
+
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
+
+			setTimeout(function () {
+				minimizeCharacterHealth(type);
+			}, 1000);
+
 		}
 	})
 }
@@ -50,7 +64,6 @@ function opponentPower(){
 
 			setTimeout(function () {
 			    reactionToOpponent();
-				minimizeCharacterHealth();
 			}, 1000);
 
 		}
@@ -64,12 +77,14 @@ function addReaction(){
 		dataType: 'json',
 		success: function(data){
 			console.log(data);
+			var type = data.value.type
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
 			
 			setTimeout(function () {
 			    opponentPower();
+			    minimizeOpponentHealth(type);
 			}, 1000);
 
 		}
@@ -120,7 +135,6 @@ function showPower(){
 						
 			setTimeout(function () {
 			    addReaction();
-			    minimizeOpponentHealth();
 			}, 2000);
 		}
 	})
