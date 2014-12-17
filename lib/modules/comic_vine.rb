@@ -30,7 +30,7 @@ module ComicVine
     else
        teams = team.map { |t| t["name"] }
     end
-    binding.pry
+
     team_friends_team = api_single_character["response"]["results"]["team_friends"]
     team_friends = team_friends_team.nil? ? 0 :
                    team_friends_team["team"].map { |friends| friends["name"] }.join(", ")
