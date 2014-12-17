@@ -1,5 +1,3 @@
-
-
 function showAllCharacters(){
 	var characterCollection = new CharacterCollection();
 
@@ -11,21 +9,22 @@ function showAllCharacters(){
 	Backbone.history.start();
 }
 
-function minimizeOpponentHealth(type){
-	
+function minimizeOpponentHealth(type, damage){
 	var currentHealth = parseInt($('#opponent-health-meter').css("width").replace("px",""));
-	var minusTen = currentHealth - 25;
+	var minusDamage = damage * 25;
+	var changeHealth = currentHealth - minusDamage;
 	if (type === "hit"){
-		$('#opponent-health-meter').css("width", minusTen+"px")
+		$('#opponent-health-meter').css("width", changeHealth+"px")
 	}
 }
 
-function minimizeCharacterHealth(type){
+function minimizeCharacterHealth(type, damage){
 	debugger;
 	var currentHealth = parseInt($('#character-health-meter').css("width").replace("px",""));
-	var minusTen = currentHealth - 25;
+	var minusDamage = damage * 25;
+	var changeHealth = currentHealth - minusDamage;
 	if (type === "hit"){
-		$('#character-health-meter').css("width", minusTen+"px")
+		$('#character-health-meter').css("width", changeHealth+"px")
 	}
 }
 
@@ -36,14 +35,16 @@ function reactionToOpponent(){
 		dataType: 'json',
 		success: function(data){
 			console.log(data);
+			debugger;
 			var type = data.value.type
+			var damage = data.value.damage
 
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
 
 			setTimeout(function () {
-				minimizeCharacterHealth(type);
+				minimizeCharacterHealth(type,damage);
 			}, 1000);
 
 		}
@@ -76,14 +77,16 @@ function addReaction(){
 		dataType: 'json',
 		success: function(data){
 			console.log(data);
+			debugger;
 			var type = data.value.type
+			var damage = data.value.damage
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
 			
 			setTimeout(function () {
 			    opponentPower();
-			    minimizeOpponentHealth(type);
+			    minimizeOpponentHealth(type, damage);
 			}, 1000);
 
 		}

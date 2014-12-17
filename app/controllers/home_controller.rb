@@ -113,12 +113,18 @@ class HomeController < ApplicationController
 
     # current_char = current_user.stories.last.character_one
     story = current_user.stories.last
-    story.
 
     opponent = current_user.stories.last.character_two
     rand_reaction = Reaction.all.sample
     reaction_type = rand_reaction.hit_or_miss
-    reaction_story = {story: rand_reaction.reaction.gsub('*char*',"#{opponent.upcase}"), type: reaction_type }
+
+    if reaction_type == "hit"
+      story.add_opponent_damage!
+    end
+
+    damage_status = story.char_two_damage
+
+    reaction_story = {story: rand_reaction.reaction.gsub('*char*',"#{opponent.upcase}"), type: reaction_type, damage: damage_status }
 
     render json: {"value" => reaction_story}
   end
@@ -134,10 +140,19 @@ class HomeController < ApplicationController
   end
 
   def reaction_to_opponent
+    story = current_user.stories.last
+
     current_char = current_user.stories.last.character_one
     rand_reaction = Reaction.all.sample
     reaction_type = rand_reaction.hit_or_miss
-    opponent_reaction_story = {story: rand_reaction.reaction.gsub('*char*',"#{current_char.upcase}"), type: reaction_type}
+
+    if reaction_type == "hit"
+      story.add_char_damage!
+    end
+
+    damage_status = story.char_one_damage
+
+    opponent_reaction_story = {story: rand_reaction.reaction.gsub('*char*',"#{current_char.upcase}"), type: reaction_type, damage: damage_status}
 
     render json: {"value" => opponent_reaction_story}
   end

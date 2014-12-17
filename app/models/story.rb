@@ -2,13 +2,13 @@ class Story < ActiveRecord::Base
 
   before_create :zero_moves
 
-  def add_char_moves!
-    self.char_one_moves += 1
+  def add_char_damage!
+    self.char_one_damage += 1
     self.save!
   end
 
-  def add_opponent_moves!
-    self.char_two_moves += 1
+  def add_opponent_damage!
+    self.char_two_damage += 1
     self.save!
   end
 
@@ -44,8 +44,8 @@ class Story < ActiveRecord::Base
 ##before create##
 
   def zero_moves
-    self.char_one_moves = 0
-    self.char_two_moves = 0
+    self.char_one_damage = 0
+    self.char_two_damage = 0
   end
 
 
