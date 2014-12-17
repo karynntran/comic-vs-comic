@@ -9,12 +9,17 @@ class HomeController < ApplicationController
 
     if Character.exists?(name: query)
       @character = Character.find_by(name: query)
-    elsif ComicVine.check_api(query) == "success"
-      api_character = ComicVine.get_character(query)
-      @character = Character.create(api_character)
     else
-      @character = "Sorry, no characters found! Search for another one."
+      result = ComicVine.check_api(query)
+      if result == "success"
+        api_character = ComicVine.get_character(query)
+        @character = Character.create(api_character)
+      else
+        flash.now[:error] = "No character found. Search again."
+        redirect_to root_path
+      end
     end
+
     story_data = {
       user_id: current_user.id,
       character_one: @character.name,

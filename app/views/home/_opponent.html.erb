@@ -1,7 +1,11 @@
 <div class="row">
-	<div id="opponent-health-meter" class="four columns"><%=image_tag("skullbones.png", :class => "health-image")%></div><br>
 	<div id="opponent" class="four columns">
 		<span><p>Your Opponent: <%%= name %></p></span>
+
+			<div id="opponent-health-meter">
+				<%=image_tag("skullbones.png", :class => "health-image")%>
+			</div><br>
+
 		<img class="character-image" width="200px" height="auto" src="<%%= image %>">
 	</div>
 </div>

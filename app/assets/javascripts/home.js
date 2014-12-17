@@ -87,6 +87,7 @@ function helpOut(){
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
 			addReaction();
+			$('#story-text').css("border","orange 2px solid");
 		}
 	})
 }
@@ -101,6 +102,7 @@ function callFriends(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
+			$('#story-text').css("border","green 2px solid");
 		}
 	})
 }
@@ -114,7 +116,7 @@ function showPower(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
-			$('#story-text').css("border","yellow 2px solid");
+			$('#story-text').css("border","blue 2px solid");
 						
 			setTimeout(function () {
 			    addReaction();
