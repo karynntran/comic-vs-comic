@@ -19,23 +19,43 @@ module ComicVine
     id = api_single_character["response"]["results"]["id"]
     image = api_single_character["response"]["results"]["image"]["medium_url"]
 
-    powers_hash = api_single_character["response"]["results"]["powers"]["power"] ||= {}
-    powers = powers_hash.map { |power| power["name"] }
-    powers = powers.join(", ")
+    hero_powers = api_single_character["response"]["results"]["powers"]
+    powers = hero_powers.nil? ? 0 : hero_powers["power"].map { |p| p["name"] }.join(", ")
 
-    team_hash = api_single_character["response"]["results"]["teams"]["team"] ||= {}
-    teams = team_hash.map { |team| team["name"] } #or team_hash["name"]
-    teams = teams.join(", ")
+    begin
+       team = api_single_character["response"]["results"]["teams"]["team"]
+       team.map { |t| t["name"] }
+    rescue
+       team["name"]
+    else
+       teams = team.map { |t| t["name"] }
+    end
 
-    team_friends_hash = api_single_character["response"]["results"]["team_friends"]["team"] ||= {}
-    team_friends = team_friends_hash.map { |friends| friends["name"] }
-    team_friends = team_friends.join(", ")
+    team_friends_team = api_single_character["response"]["results"]["team_friends"]
+    team_friends = team_friends_team.nil? ? 0 :
+                   team_friends_team.map { |friends| friends["name"] }.join(", ")
 
-    team_enemies_hash = api_single_character["response"]["results"]["team_enemies"]["team"] ||= {}
-    team_enemies = team_enemies_hash.map { |enemies| enemies["name"] }
-    team_enemies = team_enemies.join(", ")
 
-    {name: name, image: image, powers: powers, friends: team_friends, enemies: team_enemies, team: teams}
+    # team = api_single_character["response"]["results"]["teams"]["team"]
+    # teams = team.map { |t| t["name"] }.nil? ? team["name"] : team.map { |t| t["name"] }.join(", ")
+
+    # powers_hash = api_single_character["response"]["results"]["powers"]["power"] ||= {}
+    # powers = powers_hash.map { |power| power["name"] }
+    # powers = powers.join(", ")
+
+    # team_hash = api_single_character["response"]["results"]["teams"]["team"]
+    # teams = team_hash.map { |team| team["name"] } #or team_hash["name"]
+    # teams = teams.join(", ")
+
+    # team_friends_hash = api_single_character["response"]["results"]["team_friends"]["team"]
+    # team_friends = team_friends_hash.map { |friends| friends["name"] }
+    # team_friends = team_friends.join(", ")
+
+    # team_enemies_hash = api_single_character["response"]["results"]["team_enemies"]["team"] ||= {}
+    # team_enemies = team_enemies_hash.map { |enemies| enemies["name"] }
+    # team_enemies = team_enemies.join(", ")
+
+    {name: name, image: image, powers: powers, friends: team_friends}
   end
 
   def self.check_character_exists(api_all_chars)
