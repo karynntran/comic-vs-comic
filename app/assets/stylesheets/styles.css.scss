@@ -1,8 +1,9 @@
 body {
-  background: #FFF8DC;
+  background: #FFFFFF;
   height: 100%;
   padding: 10px;
   z-index: -1;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #game-area {
@@ -11,39 +12,51 @@ body {
 }
 
 #subheader {
+	color: gray;
 	font-size: 15px;
 	height: auto;
-	background-color: white;
 	padding:10px;
 	width: 100%;
 	position: fixed;
 	left: 0;
-	margin-top: 20px;
+	margin-top: 40px;
+	form {
+		color: gray;
+	}
 }
 
 header {
   top: 0;
   left: 0;
   position: fixed;
-  background-color: black;
+  background-color: #003399;
   padding: 10px;
   color: white;
-  font-size: 25px;
-  font-family: 'Permanent Marker', cursive;
-  height: auto;
-  h1 {
-	font-size: 30px;
-  }
+  	h1 {
+	  font-size: 25px;
+	  font-family: 'Permanent Marker', cursive;
+	  height: auto;
+	  font-size: 40px;
+	  margin: 0;
+  	}
 }
 
 #navigation {
+	margin: 0 auto;
 	font-size: 15px;
 	#nav-user{
-		text-align: left;
+		text-align: right;
+		display: inline;
 	}
 	#logout {
 		text-align: right;
 	}
+}
+
+#avatar {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
 }
 
 #content {
@@ -132,4 +145,10 @@ span {
 	margin: 0 3px;
 	border-radius: 4px;
 	float: right;
+}
+#all-chars {
+	border: none;
+	font-size: 15px;
+	color: #003399;
+	background-color: lightgray;
 }
