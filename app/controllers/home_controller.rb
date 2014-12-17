@@ -4,8 +4,22 @@ class HomeController < ApplicationController
     @characters = Character.all
   end
 
+
+
+
+
+
+
+
+## MOVE TO STORIES CONTROLLER
+
   def search
+
+    # Refector to be the create of [post: /stories]
+
     query = params['query'].downcase
+
+# MOVE SEARCH TO MOD ComicVine.search(query)
 
     if Character.exists?(name: query)
       @character = Character.find_by(name: query)
@@ -28,6 +42,8 @@ class HomeController < ApplicationController
   end
 
   def opponent
+      # MOVE TO STORY CONTROLLER ALL /stories/:id/opponent
+
     story = current_user.stories.last
     random_opponent = Character.all.sample.name
     story.update_attributes(character_two: random_opponent)
@@ -38,40 +54,63 @@ class HomeController < ApplicationController
   end
 
   def power
+    # MOVE TO STORY CONTROLLER ALL /stories/:id/power
+
+    # AJM:  Consider passing story id up with request...
+    # story = Story.find(params[:id])
+    # current_char = story.character_one
+    # opponent = story.character_two
+
+
+
     current_char = current_user.stories.last.character_one
     opponent = current_user.stories.last.character_two
     power = Character.find_by({name: current_char}).powers.split(", ").sample.upcase
     power_story = {story: "#{current_char.upcase} uses the power of #{power} against #{opponent.upcase}" }
     story = current_user.stories.last
-
     render json: {"value" => power_story}
+
+
+    # story.recieve_opponent_damage!
+
+      # render json: {"value" => power_story, "opponent_damage" => story.opponent_damage, "current_char" => story.current_char_damage}
+
   end
 
   def call_friends
+
+    # MOVE TO STORY CONTROLLER ALL /stories/:id/call_friends
+
     current_char = current_user.stories.last.character_one
     team_friends = Character.find_by({name: current_char}).friends.split(", ").sample.upcase
     result = Friend.all.sample.friend
     friend_story = {story: result.gsub('*friends*', "#{team_friends}")}
 
     story = current_user.stories.last
-    story.add_moves
+    # story.add_moves
 
     render json: {"value" => friend_story}
   end
 
   def help_out
+
+    # MOVE TO STORY CONTROLLER ALL /stories/:id/help_out
+
     power = current_user.powers.split(", ").sample.upcase
     opponent = current_user.stories.last.character_two
 
     user_story = {story: "#{current_user.username.upcase} joins the fray! #{current_user.username.upcase} uses the power of #{power} against #{opponent.upcase}"}
 
     story = current_user.stories.last
-    story.add_moves
+    # story.add_moves
 
     render json: {"value" => user_story}
   end
 
   def reaction
+
+    # MOVE TO STORY CONTROLLER ALL /stories/:id/reaction
+
     # current_char = current_user.stories.last.character_one
     opponent = current_user.stories.last.character_two
     rand_reaction = Reaction.all.sample
@@ -99,6 +138,12 @@ class HomeController < ApplicationController
 
     render json: {"value" => opponent_reaction_story}
   end
+
+
+  #  ^^^^^ MOVE TO STORY CONTROLER ^^^^^^
+
+
+
 
 end
 

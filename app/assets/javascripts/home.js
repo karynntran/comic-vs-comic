@@ -133,6 +133,8 @@ function showPower(){
 			$('#story-results').prepend(renderedHtml);
 			$('#story-text').css("border","blue 2px solid");
 						
+			$('#opponent_skull').css('left', data.opponent_damage);
+
 			setTimeout(function () {
 			    addReaction();
 			}, 2000);
