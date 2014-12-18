@@ -46,7 +46,6 @@ function reactionToOpponent(){
 			setTimeout(function () {
 				minimizeCharacterHealth(type,damage);
 			}, 1000);
-
 		}
 	})
 }
