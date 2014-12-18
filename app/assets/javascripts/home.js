@@ -57,7 +57,6 @@ function minimizeOpponentHealth(type, damage, outcome){
 	var totalHealth = 250;
 	var minusDamage = damage * 50;
 	var changeHealth = totalHealth - minusDamage;
-	debugger;
 	if (type === "hit"){
 		$('#opponent-health-meter').css("width", changeHealth+"px")
 	}
@@ -71,7 +70,6 @@ function minimizeCharacterHealth(type, damage, outcome){
 	var totalHealth = 250;
 	var minusDamage = damage * 50;
 	var changeHealth = totalHealth - minusDamage;
-	debugger;
 	if (type === "hit"){
 		$('#character-health-meter').css("width", changeHealth+"px")
 	}
@@ -186,7 +184,7 @@ function showPower(){
 			$('#story-results').prepend(renderedHtml);
 			$('#story-text').toggle("pulsate", 1200);
 						
-			$('#opponent_skull').css('left', data.opponent_damage);
+			// $('#opponent_skull').css('left', data.opponent_damage);
 
 			setTimeout(function () {
 			    addReaction();

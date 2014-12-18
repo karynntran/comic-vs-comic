@@ -15,7 +15,7 @@ class Story < ActiveRecord::Base
   def winner?
     if self.char_one_damage == 5
       "#{self.character_two} wins!"
-    elsif self.char_one_damage == 5
+    elsif self.char_two_damage == 5
       "#{self.character_one} wins!"
     else
       "none"
