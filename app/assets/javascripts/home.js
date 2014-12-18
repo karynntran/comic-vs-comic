@@ -55,7 +55,7 @@ function showWinner(winner){
 function minimizeOpponentHealth(type, damage, outcome){
 	// var currentHealth = parseInt($('#opponent-health-meter').css("width").replace("px",""));
 	var totalHealth = 250;
-	var minusDamage = damage * 25;
+	var minusDamage = damage * 50;
 	var changeHealth = totalHealth - minusDamage;
 	debugger;
 	if (type === "hit"){
@@ -69,7 +69,7 @@ function minimizeOpponentHealth(type, damage, outcome){
 function minimizeCharacterHealth(type, damage, outcome){
 	// var currentHealth = parseInt($('#character-health-meter').css("width").replace("px",""));
 	var totalHealth = 250;
-	var minusDamage = damage * 25;
+	var minusDamage = damage * 50;
 	var changeHealth = totalHealth - minusDamage;
 	debugger;
 	if (type === "hit"){
