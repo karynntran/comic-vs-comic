@@ -33,14 +33,3 @@ friends = [
 friends.each do |friend|
   Friend.create(friend: friend)
 end
-
-outcomes = [
-  "*char2* grimaces, retreats and says 'You may have won this battle but I’ll be back!'",
-  "This isn’t looking good! *char1* better run…looks like *char2* wins this round…poor civilians!",
-  "Nothing good’s gonna come out of this one. *char1* and *char2* draw. Until the next battle…",
-  "*char1* can’t go on and admits defeat. *char2* does a victory dance and blows up more buildings.",
-]
-
-outcomes.each do |outcome|
-  Outcome.create(outcome: outcome)
-end
