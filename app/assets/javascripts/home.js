@@ -53,22 +53,25 @@ function showWinner(winner){
 }
 
 function minimizeOpponentHealth(type, damage, outcome){
-	var currentHealth = parseInt($('#opponent-health-meter').css("width").replace("px",""));
+	// var currentHealth = parseInt($('#opponent-health-meter').css("width").replace("px",""));
+	var totalHealth = 250;
 	var minusDamage = damage * 25;
-	var changeHealth = currentHealth - minusDamage;
+	var changeHealth = totalHealth - minusDamage;
+	debugger;
 	if (type === "hit"){
 		$('#opponent-health-meter').css("width", changeHealth+"px")
 	}
-	debugger;
 	if (outcome !== "none"){
 		showWinner(outcome);
 	}
 }
 
 function minimizeCharacterHealth(type, damage, outcome){
-	var currentHealth = parseInt($('#character-health-meter').css("width").replace("px",""));
+	// var currentHealth = parseInt($('#character-health-meter').css("width").replace("px",""));
+	var totalHealth = 250;
 	var minusDamage = damage * 25;
-	var changeHealth = currentHealth - minusDamage;
+	var changeHealth = totalHealth - minusDamage;
+	debugger;
 	if (type === "hit"){
 		$('#character-health-meter').css("width", changeHealth+"px")
 	}
