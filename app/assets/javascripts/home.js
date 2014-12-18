@@ -214,6 +214,8 @@ function removeIntro(){
 
 $(function(){
 
+	$('#welcome').show();
+
 	$("#play").click(function() {
 	$('#welcome').toggle('slide', { direction: 'up' }, 500);
 		removeIntro();
