@@ -26,8 +26,8 @@ Reaction.create(reaction: "*char* shakes his/her head.",hit_or_miss: "miss")
 # end
 
 friends = [
-"*friends* are here and they’re ready to fight.",
-"You keep calling for help, but *friends* don’t arrive. Looks like you’re on your own for this one :( "
+"The team *friends* are here and they’re ready to fight.",
+"You keep calling for help, but the team *friends* doesn’t arrive. Looks like you’re on your own for this one :( "
 ]
 
 friends.each do |friend|

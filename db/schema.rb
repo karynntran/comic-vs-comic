@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 20141217221708) do
     t.text     "image"
     t.text     "team"
     t.text     "friends"
-    t.text     "enemies"
-    t.text     "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
