@@ -30,26 +30,15 @@ function showWinner(winner){
 	var div = document.createElement('div');
 	var text = document.createTextNode(winner);
 	div.appendChild(text);
-	$('#game-area').append(div);
+	$('#game-area').html(div);
 	$(div).css({
+    'color':'white',
     'background-color':'lightgray',
-    'height':'300px',
-    'width':'80%',
-    'margin':'50px auto',
-    'font-size':'40px',
-    'font-family':'Permanent Marker',
-    'border-radius':'50px',
-    'position':'absolute',
-    'top': '28%',
-    'left': '12%',
-    'opacity': '.9',
+    'height':'100px',
+    'width':'400px',
     'text-align':'center',
-	'color': 'red',
+    'margin':'0 auto',
 	});
-	$(text).css({
-		'opacity': '1',
-		'vertical-align':'middle'
-	})
 }
 
 function minimizeOpponentHealth(type, damage, outcome){
@@ -72,6 +61,7 @@ function minimizeCharacterHealth(type, damage, outcome){
 	if (type === "hit"){
 		$('#character-health-meter').css("width", changeHealth+"px")
 	}
+	debugger;
 	if (outcome !== "none"){
 		showWinner(outcome);
 	}
@@ -274,3 +264,4 @@ $(function(){
 
 
 
+;

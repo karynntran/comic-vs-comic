@@ -1,3 +1,22 @@
+<div class="row">
+	<div id="subheader">
+		<div class="eight columns">
+			<%= form_tag("/search", method: "get", :id => 'search') do %>
+			  <%= label_tag("Choose", "CHOOSE YOUR COMIC BOOK CHARACTER") %>
+			  <%= text_field_tag 'query', '', placeholder: '...Wolverine?' %>
+			  <%= submit_tag("Go!") %>
+			<% end %>
+		</div>
+
+		<div class="errors">
+				<h5><%= flash[:error] if flash[:error] %> </h5>
+		</div>
+
+		<div class="three columns">
+			<button class="character-action" id="all-chars">See characters played?</button>
+		</div>
+	</div>
+</div>
 
 <div id="buttons">
 	CHOOSE AN ACTION TO START BUILDING OUT YOUR STORY<br>
