@@ -7,8 +7,9 @@ var CharacterListView = Backbone.View.extend({
 
   initialize: function(){
     console.log('hey');
-    this.render();
+    
   },
+
 
   render: function(){
     this.$el.empty();

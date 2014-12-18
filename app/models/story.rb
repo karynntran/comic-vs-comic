@@ -12,6 +12,15 @@ class Story < ActiveRecord::Base
     self.save!
   end
 
+  def winner?
+    if self.char_one_damage == 10
+      "#{self.character_two} wins!"
+    elsif self.char_one_damage == 10
+      "#{self.character_one} wins!"
+    else
+      "none"
+    end
+  end
 
   # def call_powers
   #   #random power using current character

@@ -61,15 +61,12 @@ class HomeController < ApplicationController
     # current_char = story.character_one
     # opponent = story.character_two
 
-
-
     current_char = current_user.stories.last.character_one
     opponent = current_user.stories.last.character_two
     power = Character.find_by({name: current_char}).powers.split(", ").sample.upcase
     power_story = {story: "#{current_char.upcase} uses the power of #{power} against #{opponent.upcase}" }
     story = current_user.stories.last
     render json: {"value" => power_story}
-
 
     # story.recieve_opponent_damage!
 
@@ -108,7 +105,6 @@ class HomeController < ApplicationController
   end
 
   def reaction
-
     # MOVE TO STORY CONTROLLER ALL /stories/:id/reaction
 
     # current_char = current_user.stories.last.character_one
@@ -121,10 +117,11 @@ class HomeController < ApplicationController
     if reaction_type == "hit"
       story.add_opponent_damage!
     end
-
     damage_status = story.char_two_damage
 
-    reaction_story = {story: rand_reaction.reaction.gsub('*char*',"#{opponent.upcase}"), type: reaction_type, damage: damage_status }
+    outcome = story.winner?
+
+    reaction_story = {story: rand_reaction.reaction.gsub('*char*',"#{opponent.upcase}"), type: reaction_type, damage: damage_status, outcome: outcome }
 
     render json: {"value" => reaction_story}
   end
@@ -152,7 +149,9 @@ class HomeController < ApplicationController
 
     damage_status = story.char_one_damage
 
-    opponent_reaction_story = {story: rand_reaction.reaction.gsub('*char*',"#{current_char.upcase}"), type: reaction_type, damage: damage_status}
+    outcome = story.winner?
+
+    opponent_reaction_story = {story: rand_reaction.reaction.gsub('*char*',"#{current_char.upcase}"), type: reaction_type, damage: damage_status, outcome: outcome}
 
     render json: {"value" => opponent_reaction_story}
   end

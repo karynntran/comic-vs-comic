@@ -1,30 +1,61 @@
+// function ZapBoomOrPow(){
+// 	var hitPics = new Array("/assets/zap.png","/assets/bang.png","/assets/pow.png");
+// 	function choosePic() {
+// 	randomNum = Math.floor((Math.random() * hitPics.length));
+// 	document.getElementById("myPicture").src = myPix[randomNum];
+// }
+
+// function setView(newView) {
+// 	if (this.view) {
+// 	  this.view.remove();
+// 	}
+// 	this.view = newView;
+// 	this.view.render().$el.appendTo('#game-area');
+// }
+
+
 function showAllCharacters(){
 	var characterCollection = new CharacterCollection();
 
 	characterCollection.fetch({
 		success: function(characters) {
-			characterListView = new CharacterListView({collection: characters });
+			characterListView = new CharacterListView({collection: characters, el: $('#game-area') });
+			characterListView.render()
 		}
 	});
 	Backbone.history.start();
 }
 
-function minimizeOpponentHealth(type, damage){
+function showWinner(winner){
+	var div = document.createElement('div');
+	var text = document.createTextNode(winner);
+	var winner = div.appendChild(text);
+	$('#game-area').html(winner);
+}
+
+function minimizeOpponentHealth(type, damage, outcome){
 	var currentHealth = parseInt($('#opponent-health-meter').css("width").replace("px",""));
 	var minusDamage = damage * 25;
 	var changeHealth = currentHealth - minusDamage;
 	if (type === "hit"){
 		$('#opponent-health-meter').css("width", changeHealth+"px")
 	}
+	debugger;
+	if (outcome !== "none"){
+		showWinner(outcome);
+	}
 }
 
-function minimizeCharacterHealth(type, damage){
-	debugger;
+function minimizeCharacterHealth(type, damage, outcome){
 	var currentHealth = parseInt($('#character-health-meter').css("width").replace("px",""));
 	var minusDamage = damage * 25;
 	var changeHealth = currentHealth - minusDamage;
 	if (type === "hit"){
 		$('#character-health-meter').css("width", changeHealth+"px")
+	}
+	debugger;
+	if (outcome !== "none"){
+		showWinner(outcome);
 	}
 }
 
@@ -35,16 +66,16 @@ function reactionToOpponent(){
 		dataType: 'json',
 		success: function(data){
 			console.log(data);
-			debugger;
 			var type = data.value.type
 			var damage = data.value.damage
+			var outcome = data.value.outcome
 
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
 
 			setTimeout(function () {
-				minimizeCharacterHealth(type,damage);
+				minimizeCharacterHealth(type,damage,outcome);
 			}, 1000);
 		}
 	})
@@ -76,18 +107,18 @@ function addReaction(){
 		dataType: 'json',
 		success: function(data){
 			console.log(data);
-			debugger;
 			var type = data.value.type
 			var damage = data.value.damage
+			var outcome = data.value.outcome
+
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
 			
 			setTimeout(function () {
 			    opponentPower();
-			    minimizeOpponentHealth(type, damage);
+			    minimizeOpponentHealth(type, damage,outcome);
 			}, 1000);
-
 		}
 	})
 }
@@ -132,7 +163,7 @@ function showPower(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
-			$('#story-text').css("border","blue 2px solid");
+			$('#story-text').toggle("pulsate", 1200);
 						
 			$('#opponent_skull').css('left', data.opponent_damage);
 
@@ -158,17 +189,17 @@ function showOpponent(){
 	})
 }
 
+function removeIntro(){
+	$('#welcome').css('display','none');
+}
+
 $(function(){
-	
-	// $('#play').on('click', function(e){
-	// 	e.preventDefault();
-	// 	$('#welcome-image').toggle("slide", {direction: "left"});
-	// })
 
 	$("#play").click(function() {
-		$('#welcome').toggle('slide', { direction: 'left' }, 1500);
+	$('#welcome').toggle('slide', { direction: 'up' }, 500);
+		removeIntro();
 	});
-
+	
 	$('#zap').delay(500).fadeIn();
 	$('#bang').delay(750).fadeIn();
 	$('#pow').delay(1000).fadeIn();
