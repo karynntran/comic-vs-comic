@@ -159,6 +159,21 @@ function showOpponent(){
 }
 
 $(function(){
+	
+	// $('#play').on('click', function(e){
+	// 	e.preventDefault();
+	// 	$('#welcome-image').toggle("slide", {direction: "left"});
+	// })
+
+	$("#play").click(function() {
+		$('#welcome').toggle('slide', { direction: 'left' }, 1500);
+	});
+
+	$('#zap').delay(500).fadeIn();
+	$('#bang').delay(750).fadeIn();
+	$('#pow').delay(1000).fadeIn();
+	
+
 	$('#all-chars').on('click',  function(e){
 		e.preventDefault();
 		showAllCharacters();
