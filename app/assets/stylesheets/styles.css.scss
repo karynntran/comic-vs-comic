@@ -212,6 +212,7 @@ p {
 	font-size: 15px;
 	padding: 10px;
 	border-radius: 5px;
+	text-align: center;
 }
 #story-results {
 	height: 400px;
@@ -222,7 +223,7 @@ p {
 
 span {
 	p {
-		color: red;
+		color: darkblue;
 		font-weight: bold;
 	}
 }
@@ -247,6 +248,13 @@ span {
 .user-info{
 	border: 1px solid lightgray;
 	border-radius: 5px;
-	padding: 8px;
+	padding: 18px;
 	z-index: 2;
+}
+#profile-play-game {
+	padding: 10px;
+	border: 1px solid lightgray;
+	border-radius: 3px;
+	text-decoration: none;
+	color: gray;
 }

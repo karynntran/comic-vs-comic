@@ -6,6 +6,7 @@
 			<img id="profile" src="<%=current_user.image%>" width="20%" height="auto">
 			<p>Name: <%=current_user.first_name%></p>
 			<p>Powers: <%=current_user.powers%></p>
+			<%= link_to 'PLAY GAME', root_path, id: "profile-play-game" %>
 		</div>
 	</div>
 </div>

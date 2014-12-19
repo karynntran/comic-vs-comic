@@ -109,12 +109,10 @@ function opponentPower(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
-			$('#story-text').animate({
-			    color: "white",
+			$('#story-text.p').animate({
 			    backgroundColor: "orange"
 			});
 			
-
 			setTimeout(function () {
 			    reactionToOpponent();
 			}, 2000);
@@ -141,7 +139,7 @@ function addReaction(){
 			setTimeout(function () {
 			    opponentPower();
 			    minimizeOpponentHealth(type, damage,outcome);
-			}, 1500);
+			}, 2000);
 		}
 	})
 }
@@ -225,6 +223,9 @@ function showOpponent(){
 	})
 }
 
+function removeWelcome(){
+	$('#welcome').hide();
+}
 
 $(function(){
 	$("#play").click(function() {
@@ -243,6 +244,7 @@ $(function(){
 
 	$('#search').on('submit', function(e){
 		e.preventDefault();
+
 		var name = $('form').find('input[name="query"]').val();
 		$.ajax({
 			url: '/search',
