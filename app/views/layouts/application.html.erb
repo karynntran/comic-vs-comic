@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Comic SmashUp</title>	
+	<title>Comic SmashUp</title>	
 
-  <%= stylesheet_link_tag    'application', media: 'all'  %>
+	<%= stylesheet_link_tag    'application', media: 'all'  %>
 
-  <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Combo' rel='stylesheet' type='text/css'>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width", initial-scale=1, maximum-scale=1>
+	<link href='http://fonts.googleapis.com/css?family=Permanent+Marker|Combo' rel='stylesheet' type='text/css'>
+	<%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width", initial-scale=1, maximum-scale=1>
 	
 </head>
 
@@ -26,29 +26,29 @@
 		</div>
 	</div>		
 
-		<div id="game-area">
-			<%= yield %>
+	<div id="game-area">
+		<%= yield %>
 
-			<ul class="characters">
+		<ul class="characters">
 
-			</ul>
-			<script type='template' id='character-list-item-template'>
-				<%= render 'home/character' %>
-			</script>
+		</ul>
+		<script type='template' id='character-list-item-template'>
+		<%= render 'home/character' %>
+		</script>
 
-					<!-- 	 home scripts -->
-			<script type='template' id='result-template'>
-				<%= render 'home/results' %>
-			</script>
+		<!-- 	 home scripts -->
+		<script type='template' id='result-template'>
+		<%= render 'home/results' %>
+		</script>
 
-			<script type='template' id='opponent-template'>
-				<%= render 'home/opponent' %>
-			</script>
+		<script type='template' id='opponent-template'>
+		<%= render 'home/opponent' %>
+		</script>
 
-			<script type='template' id='story-template'>
-				<%= render 'home/story' %>
-			</script>
-		</div>
+		<script type='template' id='story-template'>
+		<%= render 'home/story' %>
+		</script>
+	</div>
 </body>
 
 <%= javascript_include_tag 'application' %>

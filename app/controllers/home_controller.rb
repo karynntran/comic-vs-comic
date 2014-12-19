@@ -4,13 +4,6 @@ class HomeController < ApplicationController
     @characters = Character.all
   end
 
-
-
-
-
-
-
-
 ## MOVE TO STORIES CONTROLLER
 
   def search
