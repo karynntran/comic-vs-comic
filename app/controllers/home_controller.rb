@@ -43,7 +43,6 @@ class HomeController < ApplicationController
 
   def opponent
       # MOVE TO STORY CONTROLLER ALL /stories/:id/opponent
-
     story = current_user.stories.last
     random_opponent = Character.all.sample.name
     story.update_attributes(character_two: random_opponent)
