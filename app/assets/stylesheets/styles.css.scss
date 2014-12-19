@@ -246,12 +246,13 @@ span {
 #profile {
 	border-radius: 10px;
 }
-.user-info{
+.user-info, #character-list {
 	border: 1px solid lightgray;
 	border-radius: 5px;
 	padding: 18px;
 	z-index: 2;
 }
+
 #profile-play-game {
 	padding: 10px;
 	border: 1px solid lightgray;
