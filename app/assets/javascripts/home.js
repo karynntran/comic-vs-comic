@@ -97,7 +97,7 @@ function reactionToOpponent(){
 
 			setTimeout(function () {
 				minimizeCharacterHealth(type,damage,outcome);
-			}, 1000);
+			}, 2000);
 		}
 	})
 }
