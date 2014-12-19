@@ -8,7 +8,7 @@
 				<div class="eight columns">
 					<%= form_tag("/search", method: "get", :id => 'search') do %>
 					  <%= label_tag("Choose", "CHOOSE YOUR COMIC BOOK CHARACTER") %>
-					  <%= text_field_tag 'query', '', placeholder: '...Wolverine?' %>
+					  <%= text_field_tag 'query', '', placeholder: '...Wolverine?', id: 'input' %>
 					  <%= submit_tag("Go!") %>
 					<% end %>
 				</div>

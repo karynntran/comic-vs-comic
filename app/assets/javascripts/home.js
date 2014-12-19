@@ -50,6 +50,8 @@ function showWinner(winner){
 		'opacity': '1',
 		'vertical-align':'middle'
 	})
+	$('#game-area').clearQueue();
+	$('body').clearQueue();
 }
 
 function minimizeOpponentHealth(type, damage, outcome){
@@ -91,6 +93,7 @@ function reactionToOpponent(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
+			$('#story-text').effect( "bounce", "slow" );
 
 			setTimeout(function () {
 				minimizeCharacterHealth(type,damage,outcome);
@@ -109,8 +112,8 @@ function opponentPower(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
-			$('#story-text.p').animate({
-			    backgroundColor: "orange"
+			$('#story-text').animate({
+			    outlineColor: "#CC0000"
 			});
 			
 			setTimeout(function () {
@@ -135,6 +138,7 @@ function addReaction(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
+			$('#story-text').effect( "bounce", "slow" );
 
 			setTimeout(function () {
 			    opponentPower();
@@ -157,12 +161,12 @@ function helpOut(){
 			addReaction();
 			$('#story-text').animate({
 			    color: "white",
-			    backgroundColor: "orange"
+			    backgroundColor: "#CC9900"
 			});
 
 			setTimeout(function () {
 			    addReaction();
-			}, 2000);
+			}, 3000);
 		}
 	})
 }
@@ -179,7 +183,7 @@ function callFriends(){
 			$('#story-results').prepend(renderedHtml);
 			$('#story-text').animate({
 			    color: "white",
-			    backgroundColor: "green"
+			    backgroundColor: "#009933"
 			});
 		}
 	})
@@ -196,7 +200,7 @@ function showPower(){
 			$('#story-results').prepend(renderedHtml);
 			$('#story-text').animate({
 			    color: "white",
-			    backgroundColor: "blue"
+			    backgroundColor: "#0033CC"
 			  });
 
 			// $('#opponent_skull').css('left', data.opponent_damage);
