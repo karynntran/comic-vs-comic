@@ -26,16 +26,17 @@ body {
 		font-size: 80px;
 		}
 	}
-	#welcome-image {
-		background-image: url("welcome.jpg");
-		background-size: 50%;
-		height:100%;
-		width: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-	}
+}
+
+#welcome-image {
+	background-image: url("welcome.jpg");
+	background-size: 50%;
+	height:100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
 }
 
 #zap {

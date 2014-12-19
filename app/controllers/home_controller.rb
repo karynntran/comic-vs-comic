@@ -159,8 +159,5 @@ class HomeController < ApplicationController
 
   #  ^^^^^ MOVE TO STORY CONTROLER ^^^^^^
 
-
-
-
 end
 

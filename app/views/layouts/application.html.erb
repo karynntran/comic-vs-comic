@@ -12,9 +12,6 @@
 </head>
 
 <body>
-	<div id="welcome">
-		<%= render 'home/welcome' %>
-	</div>
 
 	<div class="container">
 		<div class="row">
@@ -26,7 +23,8 @@
 					<%= render 'home/navigation' %>
 				</div>
 			</header>
-		</div>		
+		</div>
+	</div>		
 
 		<div id="game-area">
 			<%= yield %>
@@ -51,7 +49,6 @@
 				<%= render 'home/story' %>
 			</script>
 		</div>
-	</div>
 </body>
 
 <%= javascript_include_tag 'application' %>
