@@ -1,4 +1,21 @@
 module ComicVine
+
+  def self.search_query(query)
+    if Character.exists?(name: query)
+      @character = Character.find_by(name: query)
+    else
+      result = check_api(query)
+      if result == "success"
+        api_character = get_character(query)
+        @character = Character.create(api_character)
+      else
+        flash.now[:error] = "#{query} is not found. Search again."
+        redirect_to root_path
+      end
+    end
+    @character
+  end
+
   def self.get_character(query)
     #grab all characters that match the query
     query = query.gsub(" ","+")
@@ -35,25 +52,6 @@ module ComicVine
     team_friends = team_friends_team.nil? ? 0 :
                    team_friends_team["team"].map { |friends| friends["name"] }.join(", ")
 
-
-    # team = api_single_character["response"]["results"]["teams"]["team"]
-    # teams = team.map { |t| t["name"] }.nil? ? team["name"] : team.map { |t| t["name"] }.join(", ")
-
-    # powers_hash = api_single_character["response"]["results"]["powers"]["power"] ||= {}
-    # powers = powers_hash.map { |power| power["name"] }
-    # powers = powers.join(", ")
-
-    # team_hash = api_single_character["response"]["results"]["teams"]["team"]
-    # teams = team_hash.map { |team| team["name"] } #or team_hash["name"]
-    # teams = teams.join(", ")
-
-    # team_friends_hash = api_single_character["response"]["results"]["team_friends"]["team"]
-    # team_friends = team_friends_hash.map { |friends| friends["name"] }
-    # team_friends = team_friends.join(", ")
-
-    # team_enemies_hash = api_single_character["response"]["results"]["team_enemies"]["team"] ||= {}
-    # team_enemies = team_enemies_hash.map { |enemies| enemies["name"] }
-    # team_enemies = team_enemies.join(", ")
 
     {name: name, image: image, powers: powers, friends: team_friends}
   end

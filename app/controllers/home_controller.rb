@@ -9,29 +9,18 @@ class HomeController < ApplicationController
   def search
 
     # Refector to be the create of [post: /stories]
-
     query = params['query'].downcase
+    @character = ComicVine.search_query(query)
 
-# MOVE SEARCH TO MOD ComicVine.search(query)
-
-    if Character.exists?(name: query)
-      @character = Character.find_by(name: query)
-    else
-      result = ComicVine.check_api(query)
-      if result == "success"
-        api_character = ComicVine.get_character(query)
-        @character = Character.create(api_character)
-      else
-        flash.now[:error] = "#{query} is not found. Search again."
-        redirect_to root_path
-      end
-    end
     story_data = {
       user_id: current_user.id,
       character_one: @character.name,
-      }
+    }
     story = Story.create(story_data)
     render json: @character
+# MOVE SEARCH TO MOD ComicVine.search(query)
+
+
   end
 
   def opponent
