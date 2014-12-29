@@ -6,15 +6,16 @@
 	<div class="row">
 		<div id="subheader">
 			<div class="eight columns">
-				<%= form_tag("/search", method: "get", :id => 'search') do %>
-				<%= label_tag("Choose", "CHOOSE YOUR COMIC BOOK CHARACTER") %>
-				<%= text_field_tag 'query', '', placeholder: '...Wolverine?', id: 'input' %>
-				<%= submit_tag("Go!") %>
+				<% if current_user %>
+					<%= form_tag("/search", method: "get", :id => 'search') do %>
+					<%= label_tag("Choose", "CHOOSE YOUR COMIC BOOK CHARACTER") %>
+					<%= text_field_tag 'query', '', placeholder: '...Wolverine?', id: 'input' %>
+					<%= submit_tag("Go!") %>
+					<% end %>
+				<% else %>
+					<h5>Sign In or Log In To Start</h5>
 				<% end %>
-			</div>
 
-			<div class="errors">
-				<h5><%= flash[:error] if flash[:error] %> </h5>
 			</div>
 
 			<div class="three columns">
