@@ -1,6 +1,9 @@
-<div id="welcome">
+<%if current_user %>
+<%else%>
+	<div id="welcome">
 	<%= render 'home/welcome' %>
-</div>
+	</div>
+<%end%>
 
 <div class="container">
 	<div class="row">
