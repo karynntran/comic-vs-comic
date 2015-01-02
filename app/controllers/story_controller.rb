@@ -1,6 +1,24 @@
 class StoryController < ApplicationController
 
-  def opponent
+    def search
+      query = params['query'].downcase
+      @character = ComicVine.search_query(query)
+
+      story_data = {
+        user_id: current_user.id,
+        character_one: @character.name,
+      }
+
+      story = Story.create(story_data)
+      render json: @character
+    end
+
+    # def current_story
+    #   Story.find(params[:id]).to_json
+    #   binding.pry
+    # end
+
+    def opponent
       story = current_user.stories.last
       random_opponent = Character.all.sample.name
       story.update_attributes(character_two: random_opponent)
@@ -8,6 +26,7 @@ class StoryController < ApplicationController
       @opponent = Character.find_by(name: random_opponent)
 
       render json: @opponent
+      binding.pry
     end
 
     def power

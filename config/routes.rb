@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get '/search' => 'home#search'
-  get '/opponent' => 'story#opponent'
+  post '/stories' => 'story#search'
+  # get '/stories/:id' => 'story#current_story'
+  get '/stories/:id/opponent' => 'story#opponent'
   get '/power' => 'story#power'
   get '/call-friends' => 'story#call_friends'
   get '/help-out' => 'story#help_out'

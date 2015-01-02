@@ -215,7 +215,7 @@ function showPower(){
 function showOpponent(){
 	console.log('show opponent')
 	$.ajax({
-		url: '/opponent',
+		url: '/stories/:id/opponent',
 		method: 'GET', 
 		data: {opponent: name},
 		dataType: 'json',
@@ -251,7 +251,8 @@ $(function(){
 
 		var name = $('form').find('input[name="query"]').val();
 		$.ajax({
-			url: '/search',
+			url: '/stories',
+			method: 'POST',
 			data: {query: name},
 			success: function(data){
 				console.log(data);
