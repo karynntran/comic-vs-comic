@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   post '/stories' => 'story#search'
-  # get '/stories/:id' => 'story#current_story'
   get '/stories/:id/opponent' => 'story#opponent'
   get '/power' => 'story#power'
   get '/call-friends' => 'story#call_friends'

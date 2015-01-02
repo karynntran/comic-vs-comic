@@ -1,18 +1,18 @@
-// function ZapBoomOrPow(){
-// 	var hitPics = new Array("/assets/zap.png","/assets/bang.png","/assets/pow.png");
-// 	function choosePic() {
-// 	randomNum = Math.floor((Math.random() * hitPics.length));
-// 	document.getElementById("myPicture").src = myPix[randomNum];
-// }
-
-// function setView(newView) {
-// 	if (this.view) {
-// 	  this.view.remove();
-// 	}
-// 	this.view = newView;
-// 	this.view.render().$el.appendTo('#game-area');
-// }
-
+function chooseMove(){
+	var div = document.createElement('div');
+	var text = document.createTextNode('Make A Move!');
+	div.appendChild(text);
+	$('#story-results').prepend(div);
+	$(div).css({
+	    'background-color':'lightgray',
+	    'text-align':'center',
+	    'font-size':'30px',
+		'color': 'red',
+		'border-radius': '10px',
+		'border': 'red 2px dashed',
+		'margin': '20px',
+	});
+}
 
 function showAllCharacters(){
 	var characterCollection = new CharacterCollection();
@@ -32,19 +32,19 @@ function showWinner(winner){
 	div.appendChild(text);
 	$('#game-area').append(div);
 	$(div).css({
-    'background-color':'lightgray',
-    'height':'300px',
-    'width':'80%',
-    'margin':'50px auto',
-    'font-size':'40px',
-    'font-family':'Permanent Marker',
-    'border-radius':'50px',
-    'position':'absolute',
-    'top': '28%',
-    'left': '12%',
-    'opacity': '.9',
-    'text-align':'center',
-	'color': 'red',
+	    'background-color':'lightgray',
+	    'height':'300px',
+	    'width':'80%',
+	    'margin':'50px auto',
+	    'font-size':'40px',
+	    'font-family':'Permanent Marker',
+	    'border-radius':'50px',
+	    'position':'absolute',
+	    'top': '28%',
+	    'left': '12%',
+	    'opacity': '.9',
+	    'text-align':'center',
+		'color': 'red',
 	});
 	$(text).css({
 		'opacity': '1',
@@ -95,9 +95,11 @@ function reactionToOpponent(){
 			$('#story-results').prepend(renderedHtml);
 			$('#story-text').effect( "bounce", "slow" );
 
+			minimizeCharacterHealth(type,damage,outcome);
+
 			setTimeout(function () {
-				minimizeCharacterHealth(type,damage,outcome);
-			}, 2000);
+				chooseMove();
+			}, 3000);
 		}
 	})
 }
@@ -140,9 +142,10 @@ function addReaction(){
 			$('#story-results').prepend(renderedHtml);
 			$('#story-text').effect( "bounce", "slow" );
 
+			minimizeOpponentHealth(type, damage,outcome);
+
 			setTimeout(function () {
 			    opponentPower();
-			    minimizeOpponentHealth(type, damage,outcome);
 			}, 2000);
 		}
 	})
@@ -158,7 +161,6 @@ function helpOut(){
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
-			addReaction();
 			$('#story-text').animate({
 			    color: "white",
 			    backgroundColor: "#CC9900"
@@ -166,7 +168,7 @@ function helpOut(){
 
 			setTimeout(function () {
 			    addReaction();
-			}, 3000);
+			}, 2000);
 		}
 	})
 }
@@ -185,6 +187,9 @@ function callFriends(){
 			    color: "white",
 			    backgroundColor: "#009933"
 			});
+			setTimeout(function () {
+				chooseMove();
+			}, 3000);
 		}
 	})
 }
@@ -227,10 +232,6 @@ function showOpponent(){
 	})
 }
 
-function removeWelcome(){
-	$('#welcome').hide();
-}
-
 $(function(){
 	$("#play").click(function() {
 		$('#welcome').toggle('slide', { direction: 'up' }, 500);
@@ -256,9 +257,10 @@ $(function(){
 			data: {query: name},
 			success: function(data){
 				console.log(data);
-				if (data.name){
+				var new_game = data;
+				if (new_game.name){
 					var template = _.template($('#result-template').html());
-					var renderedHtml = template(data);
+					var renderedHtml = template(new_game);
 					$('#chosen-character').html(renderedHtml);
 				};
 				showOpponent();
