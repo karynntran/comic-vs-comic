@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/search' => 'home#search'
-  get '/opponent' => 'home#opponent'
-  get '/power' => 'home#power'
-  get '/call-friends' => 'home#call_friends'
-  get '/help-out' => 'home#help_out'
-  get '/reaction' => 'home#reaction'
-  get '/opponent-power' => 'home#opponent_power'
-  get '/reaction-to-opponent' => 'home#reaction_to_opponent'
+  get '/opponent' => 'story#opponent'
+  get '/power' => 'story#power'
+  get '/call-friends' => 'story#call_friends'
+  get '/help-out' => 'story#help_out'
+  get '/reaction' => 'story#reaction'
+  get '/opponent-power' => 'story#opponent_power'
+  get '/reaction-to-opponent' => 'story#reaction_to_opponent'
 
   get '/characters' => 'character#index'
 
