@@ -249,31 +249,37 @@ $(function(){
 
 	$('#search').on('submit', function(e){
 		e.preventDefault();
-
 		var name = $('form').find('input[name="query"]').val();
 		$.ajax({
 			url: '/stories',
 			method: 'POST',
 			data: {query: name},
-			success: function(data){
+			success: function(data){				
 				console.log(data);
 				var new_game = data;
-				if (new_game.name){
+				if (new_game === null) {
+					var renderedHtml = "Character not found. Search again!";
+					$('#search-error').html(renderedHtml);	
+					// $('#content').empty();
+					// $('#buttons').empty();		
+				} else {
+					$('#search-error').empty();
 					var template = _.template($('#result-template').html());
 					var renderedHtml = template(new_game);
 					$('#chosen-character').html(renderedHtml);
-				};
-				showOpponent();
-				$('#story-results').empty();
-				$('#story-results').show();
 
-				$('#buttons').show();
+					showOpponent();
+					$('#story-results').empty();
+					$('#story-results').show();
 
-				$('#power-button').on('click',  function(e){
-					e.preventDefault();
-					console.log($(this));
-					showPower();
+					$('#buttons').show();
+
+					$('#power-button').on('click',  function(e){
+						e.preventDefault();
+						console.log($(this));
+						showPower();
 				});
+			};
 
 				$('#friend-button').on('click',  function(e){
 					e.preventDefault();

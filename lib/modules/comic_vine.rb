@@ -9,11 +9,10 @@ module ComicVine
         api_character = get_character(query)
         @character = Character.create(api_character)
       else
-        flash.now[:error] = "#{query} is not found. Search again."
-        redirect_to root_path
+        @character = nil
       end
     end
-    @character
+    # @character
   end
 
   def self.get_character(query)

@@ -14,6 +14,10 @@
 					<%= label_tag("Choose", "CHOOSE YOUR COMIC BOOK CHARACTER") %>
 					<%= text_field_tag 'query', '', placeholder: '...Wolverine?', id: 'input' %>
 					<%= submit_tag("Go!") %>
+	
+					<div id='search-error'>
+					</div>
+
 					<% end %>
 				<% else %>
 					<h5>Sign In or Log In To Start</h5>
