@@ -172,7 +172,6 @@ p {
 	width: 250px;
 	border-radius: 5px;
 	background-color: green;
-	border: 1px black solid;
 	padding: 3px;
 	background: -webkit-gradient(linear, left top, right top, from(#FF0000), to(#00FF00));
 	/* Safari 5.1, Chrome 10+ */
@@ -183,6 +182,12 @@ p {
     background: -ms-linear-gradient(left, #FF0000, #00FF00);
     /* Opera 11.10+ */
     background: -o-linear-gradient(left, #FF0000, #00FF00);
+}
+.health-border {
+	border: 1px black solid;
+	height: 36px;
+	width: 256px;
+	border-radius: 5px;
 }
 
 .health-image {
