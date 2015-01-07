@@ -259,7 +259,9 @@ $(function(){
 				var new_game = data;
 				if (new_game === null) {
 					var renderedHtml = "Character not found. Search again!";
-					$('#search-error').html(renderedHtml);			
+					$('#search-error').html(renderedHtml);	
+					// $('#content').empty();
+					// $('#buttons').empty();		
 				} else {
 					$('#search-error').empty();
 					var template = _.template($('#result-template').html());
@@ -272,9 +274,10 @@ $(function(){
 
 					$('#buttons').show();
 				};
-			};
-		});
-	});
+			}
+		})
+	})
+
 
 	$('#power-button').on('click',  function(e){
 		e.preventDefault();
@@ -293,7 +296,7 @@ $(function(){
 		console.log($(this));
 		helpOut();
 	})
-	
+
 
 })
 
