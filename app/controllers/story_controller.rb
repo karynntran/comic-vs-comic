@@ -22,6 +22,7 @@ class StoryController < ApplicationController
     random_opponent = Character.all.sample.name
     story.update_attributes(character_two: random_opponent)
     @opponent = Character.find_by(name: random_opponent)
+    Pry.start(binding)
     render json: @opponent
   end
 

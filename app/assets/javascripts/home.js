@@ -259,9 +259,7 @@ $(function(){
 				var new_game = data;
 				if (new_game === null) {
 					var renderedHtml = "Character not found. Search again!";
-					$('#search-error').html(renderedHtml);	
-					// $('#content').empty();
-					// $('#buttons').empty();		
+					$('#search-error').html(renderedHtml);			
 				} else {
 					$('#search-error').empty();
 					var template = _.template($('#result-template').html());
@@ -273,29 +271,30 @@ $(function(){
 					$('#story-results').show();
 
 					$('#buttons').show();
-
-					$('#power-button').on('click',  function(e){
-						e.preventDefault();
-						console.log($(this));
-						showPower();
-				});
+				};
 			};
+		});
+	});
 
-				$('#friend-button').on('click',  function(e){
-					e.preventDefault();
-					console.log($(this));
-					callFriends();
-				})
+	$('#power-button').on('click',  function(e){
+		e.preventDefault();
+		console.log($(this));
+		showPower();
+	});
 
-				$('#help-out-button').on('click',  function(e){
-					e.preventDefault();
-					console.log($(this));
-					helpOut();
-				})
-
-			}
-		})
+	$('#friend-button').on('click',  function(e){
+		e.preventDefault();
+		console.log($(this));
+		callFriends();
 	})
+
+	$('#help-out-button').on('click',  function(e){
+		e.preventDefault();
+		console.log($(this));
+		helpOut();
+	})
+	
+
 })
 
 

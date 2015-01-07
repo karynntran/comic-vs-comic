@@ -2,9 +2,11 @@
 	<div id="results" class="four columns">
 		<span><p>YOUR CHARACTER: <%%= name.toUpperCase() %></p></span>
 
+		<div class="health-border">
 			<div id="character-health-meter">
 				<%=image_tag("skullbones.png", :class => "health-image")%>
 			</div><br>
+		</div>
 
 		<img class="character-image" width="175px" height="auto" src="<%%= image %>">
 	</div>
