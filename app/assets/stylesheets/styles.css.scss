@@ -280,7 +280,12 @@ span {
 }
 #winner-results {
 	background-color: gray;
-	height: 300px;
-	width: 500px;
+	margin: 0 auto;
+	position: absolute;
+	top: 39%;
+	left: 10%;
+	width: 80%;
+	text-align: center;
+	font-size: 40px;
 	display: none;
 }

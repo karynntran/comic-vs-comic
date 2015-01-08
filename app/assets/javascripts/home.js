@@ -58,13 +58,13 @@ function showWinner(winner){
 	debugger;
 	var text = document.createTextNode("" + winner.name + " wins!");
 	var image =document.createElement("img");
-	image.setAttribute('src', winner.image);
+	$(image).attr({"src": winner.image, "width": "100px", "height": "auto"});
 
 	$("#winner-name").append(text);
 	$("#winner-image").append(image);
 	$("#winner-results").show();
 
-	$('#game-area').hide();
+	// $('#game-area').hide();
 
 	$('#game-area').clearQueue();
 	$('body').clearQueue();
