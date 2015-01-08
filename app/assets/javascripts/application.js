@@ -15,6 +15,13 @@
 //= require jquery_ujs
 //= require jquery_ui
 //= require underscore
+
+//= require jcarousel
+//= require jc_autoscroll
+//= require jc_control
+//= require jc_pagination
+//= require jc_scrollintoview
+
 //= require backbone
 //= require_tree ./backbone_app/models/
 //= require_tree ./backbone_app/collections/

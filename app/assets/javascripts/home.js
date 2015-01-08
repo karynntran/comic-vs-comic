@@ -72,6 +72,7 @@ function showWinner(winner){
 		e.preventDefault();
 		$('#game-results').hide();
 		$('#winner-results').empty().hide();
+		$('.jcarousel-wrapper').show();	
 	});
 
 }
@@ -289,7 +290,8 @@ $(function(){
 				} else {
 					$('#search-error').empty();
 					$('#game-area').slideDown("slow");
-					$('#game-results').show();					
+					$('#game-results').show();
+					$('.jcarousel-wrapper').hide();						
 					var template = _.template($('#result-template').html());
 					var renderedHtml = template(new_game);
 					$('#chosen-character').html(renderedHtml);
