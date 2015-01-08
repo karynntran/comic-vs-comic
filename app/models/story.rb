@@ -14,9 +14,9 @@ class Story < ActiveRecord::Base
 
   def winner?
     if self.char_one_damage == 5
-      self.character_two
+      Character.find_by(name: self.character_two)
     elsif self.char_two_damage == 5
-      self.character_one
+      Character.find_by(name: self.character_one)
     else
       "none"
     end

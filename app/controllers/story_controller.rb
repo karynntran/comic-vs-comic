@@ -1,6 +1,6 @@
 class StoryController < ApplicationController
 
-  def search
+  def story
     query = params['query'].downcase
     @character = ComicVine.search_query(query)
 
@@ -55,7 +55,6 @@ class StoryController < ApplicationController
     story = current_user.stories.last
     opponent = current_user.stories.last.character_two
     opponent_image = Character.find_by(name: opponent).image
-    binding.pry
     rand_reaction = Reaction.all.sample
     reaction_type = rand_reaction.hit_or_miss
     if reaction_type == "hit"
@@ -81,7 +80,6 @@ class StoryController < ApplicationController
     story = current_user.stories.last
     current_char = current_user.stories.last.character_one
     current_char_image = Character.find_by(name: current_char).image
-    binding.pry
     rand_reaction = Reaction.all.sample
     reaction_type = rand_reaction.hit_or_miss
     if reaction_type == "hit"

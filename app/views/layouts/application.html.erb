@@ -26,9 +26,12 @@
 	</div>		
 
 	<div id="game-area">
+
 		<%= yield %>
 
 		<ul class="characters">
+
+		<%= render 'home/winner' %>
 
 		</ul>
 		<script type='template' id='character-list-item-template'>

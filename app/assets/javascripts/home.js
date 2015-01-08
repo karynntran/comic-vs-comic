@@ -56,9 +56,15 @@ function showAllCharacters(){
 
 function showWinner(winner){
 	debugger;
-	var text = document.createTextNode("" + winner.name + "");
-	$("#winner").appendChild(text);
-	$("#winner-image").appendChild(text);
+	var text = document.createTextNode("" + winner.name + " wins!");
+	var image =document.createElement("img");
+	image.setAttribute('src', winner.image);
+
+	$("#winner-name").append(text);
+	$("#winner-image").append(image);
+	$("#winner-results").show();
+
+	$('#game-area').hide();
 
 	$('#game-area').clearQueue();
 	$('body').clearQueue();
@@ -100,7 +106,7 @@ function reactionToOpponent(){
 			var damage = data.value.damage
 			var outcome = data.value.outcome
 			var image = data.value.image
-			debugger;
+
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
@@ -148,13 +154,13 @@ function addReaction(){
 			var damage = data.value.damage
 			var outcome = data.value.outcome
 			var image = data.value.image
-			debugger;
+
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
 			$('#story-text').effect( "bounce", "slow" );
 
-			minimizeOpponentHealth(type, damage,outcome,image);
+			minimizeOpponentHealth(type,damage,outcome,image);
 
 			setTimeout(function () {
 			    opponentPower();

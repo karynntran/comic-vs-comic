@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  post '/stories' => 'story#search'
+  post '/stories' => 'story#story'
   get '/stories/:id/opponent' => 'story#opponent'
   get '/power' => 'story#power'
   get '/call-friends' => 'story#call_friends'
