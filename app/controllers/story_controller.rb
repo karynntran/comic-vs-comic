@@ -54,6 +54,8 @@ class StoryController < ApplicationController
   def reaction
     story = current_user.stories.last
     opponent = current_user.stories.last.character_two
+    opponent_image = Character.find_by(name: opponent).image
+    binding.pry
     rand_reaction = Reaction.all.sample
     reaction_type = rand_reaction.hit_or_miss
     if reaction_type == "hit"
@@ -61,7 +63,7 @@ class StoryController < ApplicationController
     end
     damage_status = story.char_two_damage
     outcome = story.winner?
-    reaction_story = {story: rand_reaction.reaction.gsub('*char*',"#{opponent.upcase}"), type: reaction_type, damage: damage_status, outcome: outcome }
+    reaction_story = {story: rand_reaction.reaction.gsub('*char*',"#{opponent.upcase}"), type: reaction_type, damage: damage_status, outcome: outcome, image: opponent_image }
     render json: {"value" => reaction_story}
   end
 
@@ -78,6 +80,8 @@ class StoryController < ApplicationController
   def reaction_to_opponent
     story = current_user.stories.last
     current_char = current_user.stories.last.character_one
+    current_char_image = Character.find_by(name: current_char).image
+    binding.pry
     rand_reaction = Reaction.all.sample
     reaction_type = rand_reaction.hit_or_miss
     if reaction_type == "hit"
@@ -85,7 +89,7 @@ class StoryController < ApplicationController
     end
     damage_status = story.char_one_damage
     outcome = story.winner?
-    opponent_reaction_story = {story: rand_reaction.reaction.gsub('*char*',"#{current_char.upcase}"), type: reaction_type, damage: damage_status, outcome: outcome}
+    opponent_reaction_story = {story: rand_reaction.reaction.gsub('*char*',"#{current_char.upcase}"), type: reaction_type, damage: damage_status, outcome: outcome, image: current_char_image}
 
     render json: {"value" => opponent_reaction_story}
   end

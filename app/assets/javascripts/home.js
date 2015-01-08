@@ -26,30 +26,40 @@ function showAllCharacters(){
 	Backbone.history.start();
 }
 
+// function showWinner(winner){
+// 	var div = document.createElement('div');
+// 	var text = document.createTextNode(winner);
+// 	div.appendChild(text);
+// 	$('#game-area').append(div);
+// 	$(div).css({
+// 	    'background-color':'lightgray',
+// 	    'height':'300px',
+// 	    'width':'80%',
+// 	    'margin':'50px auto',
+// 	    'font-size':'40px',
+// 	    'font-family':'Permanent Marker',
+// 	    'border-radius':'50px',
+// 	    'position':'absolute',
+// 	    'top': '28%',
+// 	    'left': '12%',
+// 	    'opacity': '.9',
+// 	    'text-align':'center',
+// 		'color': 'red',
+// 	});
+// 	$(text).css({
+// 		'opacity': '1',
+// 		'vertical-align':'middle'
+// 	})
+// 	$('#game-area').clearQueue();
+// 	$('body').clearQueue();
+// }
+
 function showWinner(winner){
-	var div = document.createElement('div');
-	var text = document.createTextNode(winner);
-	div.appendChild(text);
-	$('#game-area').append(div);
-	$(div).css({
-	    'background-color':'lightgray',
-	    'height':'300px',
-	    'width':'80%',
-	    'margin':'50px auto',
-	    'font-size':'40px',
-	    'font-family':'Permanent Marker',
-	    'border-radius':'50px',
-	    'position':'absolute',
-	    'top': '28%',
-	    'left': '12%',
-	    'opacity': '.9',
-	    'text-align':'center',
-		'color': 'red',
-	});
-	$(text).css({
-		'opacity': '1',
-		'vertical-align':'middle'
-	})
+	debugger;
+	var text = document.createTextNode("" + winner.name + "");
+	$("#winner").appendChild(text);
+	$("#winner-image").appendChild(text);
+
 	$('#game-area').clearQueue();
 	$('body').clearQueue();
 }
@@ -89,13 +99,14 @@ function reactionToOpponent(){
 			var type = data.value.type
 			var damage = data.value.damage
 			var outcome = data.value.outcome
-
+			var image = data.value.image
+			debugger;
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
 			$('#story-text').effect( "bounce", "slow" );
 
-			minimizeCharacterHealth(type,damage,outcome);
+			minimizeCharacterHealth(type,damage,outcome,image);
 
 			setTimeout(function () {
 				chooseMove();
@@ -136,13 +147,14 @@ function addReaction(){
 			var type = data.value.type
 			var damage = data.value.damage
 			var outcome = data.value.outcome
-
+			var image = data.value.image
+			debugger;
 			var template = _.template($('#story-template').html());
 			var renderedHtml = template(data.value);
 			$('#story-results').prepend(renderedHtml);
 			$('#story-text').effect( "bounce", "slow" );
 
-			minimizeOpponentHealth(type, damage,outcome);
+			minimizeOpponentHealth(type, damage,outcome,image);
 
 			setTimeout(function () {
 			    opponentPower();
