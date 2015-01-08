@@ -1,5 +1,5 @@
 body {
-  background: #FFFFFF;
+  background: url("welcome_BW.png");
   height: 100%;
   padding: 10px;
   z-index: -1;
@@ -92,10 +92,13 @@ body {
 #game-area {
 	margin-top: 70px;
 	overflow: hidden;
+	background: rgba(255,255,255,.8);
+	border-radius: 30px;
 }
 
 #subheader {
-	color: gray;
+	background-color: white;
+	color: black;
 	font-size: 15px;
 	height: auto;
 	padding:10px;
@@ -104,7 +107,7 @@ body {
 	left: 0;
 	margin-top: -40px;
 	form {
-		color: gray;
+		color: black;
 		margin-top: 15px;
 	}
 }

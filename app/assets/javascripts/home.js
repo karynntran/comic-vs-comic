@@ -64,10 +64,9 @@ function showWinner(winner){
 	$("#winner-image").append(image);
 	$("#winner-results").show();
 	return;
-	// $('#game-area').hide();
 
-	// $('#game-area').clearQueue();
-	// $('body').clearQueue();
+	$('#story-results').clearQueue();
+	$('body').clearQueue();
 }
 
 function minimizeOpponentHealth(type, damage, outcome){
