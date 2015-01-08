@@ -56,18 +56,18 @@ function showAllCharacters(){
 
 function showWinner(winner){
 	debugger;
-	var text = document.createTextNode("" + winner.name + " wins!");
+	var text = document.createTextNode("" + winner.name + " WINS!");
 	var image =document.createElement("img");
-	$(image).attr({"src": winner.image, "width": "100px", "height": "auto"});
+	$(image).attr({"src": winner.image, "width": "150px", "height": "auto", "border": "white 2px solid"});
 
 	$("#winner-name").append(text);
 	$("#winner-image").append(image);
 	$("#winner-results").show();
-
+	return;
 	// $('#game-area').hide();
 
-	$('#game-area').clearQueue();
-	$('body').clearQueue();
+	// $('#game-area').clearQueue();
+	// $('body').clearQueue();
 }
 
 function minimizeOpponentHealth(type, damage, outcome){
