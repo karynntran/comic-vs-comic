@@ -63,10 +63,17 @@ function showWinner(winner){
 	$("#winner-name").append(text);
 	$("#winner-image").append(image);
 	$("#winner-results").show();
-	return;
+	// return;
 
-	$('#story-results').clearQueue();
-	$('body').clearQueue();
+	// $('#story-results').clearQueue();
+	// $('body').clearQueue();
+
+	$('#play-again').on('click',  function(e){
+		e.preventDefault();
+		$('#game-results').hide();
+		$('#winner-results').empty().hide();
+	});
+
 }
 
 function minimizeOpponentHealth(type, damage, outcome){
@@ -281,6 +288,8 @@ $(function(){
 					// $('#buttons').empty();		
 				} else {
 					$('#search-error').empty();
+					$('#game-area').slideDown("slow");
+					$('#game-results').show();					
 					var template = _.template($('#result-template').html());
 					var renderedHtml = template(new_game);
 					$('#chosen-character').html(renderedHtml);
