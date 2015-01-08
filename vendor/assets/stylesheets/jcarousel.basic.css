@@ -12,7 +12,7 @@
 }
 
 .carousel-image {
-    width: 55%;
+    width: 50%;
     height: auto;
 }
 
@@ -25,6 +25,7 @@
 .jcarousel {
     position: relative;
     overflow: hidden;
+    left: 10%;
 }
 
 .jcarousel ul {
