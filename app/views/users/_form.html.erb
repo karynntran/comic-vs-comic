@@ -17,7 +17,7 @@
 
       <div class="field">
         <%= f.label :username %><br>
-        <%= f.text_field :username, :placeholder => "email..." %>
+        <%= f.text_field :username, :placeholder => "username..." %>
       </div>
       <div class="field">
         <%= f.label :password %><br>
@@ -32,12 +32,12 @@
         <%= f.text_field :last_name, :placeholder => "last name..." %>
       </div>
       <div class="field">
-        <%= f.label :image %><br>
+        <%= f.label :image, "Image (Add as URL)" %><br>
         <%= f.text_field :image, :placeholder => "image..." %>
       </div>
       <div class="field">
-        <%= f.label :powers %><br>
-        <%= f.text_field :powers, :placeholder => "your special abilities..." %>
+        <%= f.label :powers, "Powers (Separate by Commas)" %><br>
+        <%= f.text_field :powers, :placeholder => "ex. flying, invisibility..." %>
       </div>
       <div class="actions">
         <%= f.submit %>
