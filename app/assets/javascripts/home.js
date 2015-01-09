@@ -233,8 +233,6 @@ function showPower(){
 			    backgroundColor: "#0033CC"
 			  });
 
-			// $('#opponent_skull').css('left', data.opponent_damage);
-
 			setTimeout(function () {
 			    addReaction();
 			}, 2000);
@@ -305,6 +303,8 @@ $(function(){
 			}
 		})
 	})
+
+
 
 
 	$('#power-button').on('click',  function(e){
