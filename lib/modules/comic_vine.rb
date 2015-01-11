@@ -12,24 +12,19 @@ module ComicVine
         @character = nil
       end
     end
-    # @character
   end
 
   def self.get_character(query)
-    #grab all characters that match the query
     query = query.gsub(" ","+")
 
     all_characters_url = "http://comicvine.com/api/characters/?api_key=#{api_key}&field_list=name,id,api_detail_url&filter=resource_type:character,name:#{query}"
 
     api_all_characters = HTTParty.get(all_characters_url)
 
-    # need to handle how characters are returned
     first_result_id = check_character_exists(api_all_characters)
 
     one_character_url = "http://comicvine.com/api/character/4005-#{first_result_id}?api_key=#{api_key}&field_list=name,teams,powers,id,image,team_friends,team_enemies,"
     api_single_character = HTTParty.get(one_character_url)
-
-    #get character stats
 
     name = api_single_character["response"]["results"]["name"]
     id = api_single_character["response"]["results"]["id"]
@@ -50,7 +45,6 @@ module ComicVine
     team_friends_team = api_single_character["response"]["results"]["team_friends"]
     team_friends = team_friends_team.nil? ? 0 :
                    team_friends_team["team"].map { |friends| friends["name"] }.join(", ")
-
 
     {name: name, image: image, powers: powers, friends: team_friends}
   end
