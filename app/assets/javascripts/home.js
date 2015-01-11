@@ -26,34 +26,6 @@ function showAllCharacters(){
 	Backbone.history.start();
 }
 
-// function showWinner(winner){
-// 	var div = document.createElement('div');
-// 	var text = document.createTextNode(winner);
-// 	div.appendChild(text);
-// 	$('#game-area').append(div);
-// 	$(div).css({
-// 	    'background-color':'lightgray',
-// 	    'height':'300px',
-// 	    'width':'80%',
-// 	    'margin':'50px auto',
-// 	    'font-size':'40px',
-// 	    'font-family':'Permanent Marker',
-// 	    'border-radius':'50px',
-// 	    'position':'absolute',
-// 	    'top': '28%',
-// 	    'left': '12%',
-// 	    'opacity': '.9',
-// 	    'text-align':'center',
-// 		'color': 'red',
-// 	});
-// 	$(text).css({
-// 		'opacity': '1',
-// 		'vertical-align':'middle'
-// 	})
-// 	$('#game-area').clearQueue();
-// 	$('body').clearQueue();
-// }
-
 function showWinner(winner){
 	debugger;
 	var text = document.createTextNode("" + winner.name + " WINS!");
@@ -63,10 +35,6 @@ function showWinner(winner){
 	$("#winner-name").append(text);
 	$("#winner-image").append(image);
 	$("#winner-results").show();
-	// return;
-
-	// $('#story-results').clearQueue();
-	// $('body').clearQueue();
 
 	$('#play-again').on('click',  function(e){
 		e.preventDefault();
@@ -283,8 +251,7 @@ $(function(){
 				if (new_game === null) {
 					var renderedHtml = "Character not found. Search again!";
 					$('#search-error').html(renderedHtml);	
-					// $('#content').empty();
-					// $('#buttons').empty();		
+	
 				} else {
 					$('#search-error').empty();
 					$('#game-area').slideDown("slow");
@@ -304,9 +271,6 @@ $(function(){
 		})
 	})
 
-
-
-
 	$('#power-button').on('click',  function(e){
 		e.preventDefault();
 		console.log($(this));
@@ -324,11 +288,6 @@ $(function(){
 		console.log($(this));
 		helpOut();
 	})
-
-
 })
-
-
-
 
 
