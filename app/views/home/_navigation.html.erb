@@ -1,19 +1,19 @@
 <div id="navigation">		
 	<% if current_user %>
-		<div class="nine columns" id="nav-user">
-			Hello, <%= link_to current_user.username, user_path(current_user.id) %>
-			<img id="avatar" src="<%=current_user.image%>">
-		</div>
-		<div class="three columns" id="logout">
-			<%= form_tag sessions_path, method: 'delete' do %>
-			  <%= submit_tag 'Logout', id: 'nav-buttons' %>
-			<% end %>
-		</div>
+	<div class="nine columns" id="nav-user">
+		Hello, <%= link_to current_user.username, user_path(current_user.id) %>
+		<img id="avatar" src="<%=current_user.image%>">
+	</div>
+	<div class="three columns" id="logout">
+		<%= form_tag sessions_path, method: 'delete' do %>
+		<%= submit_tag 'Logout', id: 'nav-buttons' %>
+		<% end %>
+	</div>
 	<% else %>
-		<div class="one-half">
+	<div class="one-half">
 		<%= link_to 'Log In', login_path, id: 'nav-buttons' %>
 		<%= link_to 'Sign Up', new_user_path, id: 'nav-buttons' %>
-		</div>
+	</div>
 	<% end %>
 </div>
 
