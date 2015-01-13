@@ -27,7 +27,6 @@ function showAllCharacters(){
 }
 
 function showWinner(winner){
-	debugger;
 	var text = document.createTextNode("" + winner.name + " WINS!");
 	var image =document.createElement("img");
 	$(image).attr({"src": winner.image, "width": "150px", "height": "auto", "border": "white 2px solid"});
@@ -35,6 +34,7 @@ function showWinner(winner){
 	$("#winner-name").append(text);
 	$("#winner-image").append(image);
 	$("#winner-results").show();
+	$("story-results").hide();
 
 	$('#play-again').on('click',  function(e){
 		e.preventDefault();
@@ -42,7 +42,6 @@ function showWinner(winner){
 		$('#winner-results').empty().hide();
 		$('.jcarousel-wrapper').show();	
 	});
-
 }
 
 function minimizeOpponentHealth(type, damage, outcome){
@@ -53,7 +52,8 @@ function minimizeOpponentHealth(type, damage, outcome){
 		$('#opponent-health-meter').css("width", changeHealth+"px")
 	}
 	if (outcome !== "none"){
-		showWinner(outcome);
+		showWinner(outcome)
+		error;
 	}
 }
 
@@ -91,7 +91,7 @@ function reactionToOpponent(){
 
 			setTimeout(function () {
 				chooseMove();
-			}, 3000);
+			}, 2000);
 		}
 	})
 }
@@ -182,7 +182,7 @@ function callFriends(){
 			});
 			setTimeout(function () {
 				chooseMove();
-			}, 3000);
+			}, 2000);
 		}
 	})
 }
