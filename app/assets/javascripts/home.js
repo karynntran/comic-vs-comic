@@ -35,6 +35,7 @@ function showWinner(winner){
 	$("#winner-image").append(image);
 	$("#winner-results").show();
 	$("story-results").hide();
+	throw new Error('');
 
 	$('#play-again').on('click',  function(e){
 		e.preventDefault();
@@ -52,8 +53,7 @@ function minimizeOpponentHealth(type, damage, outcome){
 		$('#opponent-health-meter').css("width", changeHealth+"px")
 	}
 	if (outcome !== "none"){
-		showWinner(outcome)
-		error;
+		showWinner(outcome);
 	}
 }
 
